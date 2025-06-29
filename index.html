@@ -1,54 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Customize Your Envelope</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://pitchprint.io/rsc/js/pitchprint.min.js"></script>
-  </head>
-  <body class="bg-white text-gray-800 font-sans">
-    <div class="max-w-4xl mx-auto px-6 py-10">
-      <h1 class="text-4xl font-bold mb-4 text-center">Customize Your Envelope</h1>
-      <p class="text-center text-lg mb-6">
-        Upload your sender address and optional CSV list of recipients to get a print-ready PDF.
-      </p>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Customize Your Envelope</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://pitchprint.io/rsc/js/client.js"></script>
+  <style>
+    .btn { padding: 12px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    .hidden { display: none; }
+    .container { max-width: 800px; margin: 40px auto; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Customize Your Envelope</h1>
 
-      <div class="flex justify-center mb-6">
-        <a
-          href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing"
-          target="_blank"
-          class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700"
-        >
-          📥 Download CSV Template
-        </a>
-      </div>
+    <!-- Кнопка для скачивания шаблона -->
+    <p>
+      <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
+        📥 Download CSV Template
+      </a>
+    </p>
 
-      <div id="pitchprint_customizer" class="w-full h-[1000px]"></div>
+    <!-- Кнопка запуска редактора -->
+    <button class="btn" id="launch_btn" disabled>Open Editor</button>
 
-      <div class="mt-10">
-        <h2 class="text-2xl font-semibold mb-2">How it works</h2>
-        <ol class="list-decimal pl-5 space-y-2">
-          <li>Enter the sender's name and address</li>
-          <li>(Optional) Upload your CSV file with recipient addresses</li>
-          <li>Click "Download" to generate a ready-to-print PDF</li>
-        </ol>
-      </div>
-    </div>
+    <!-- Лоадер и превью -->
+    <div id="pp_loader_div">Loading PitchPrint...</div>
+    <div id="pp_preview_div" class="mt-4"></div>
+  </div>
 
-    <script>
-      window.addEventListener('load', function () {
-        console.log("Initializing PitchPrint...");
-        try {
-          pitchprint.load({
-            apiKey: "key_30f5980013fbc8f44c3bf75a89ece068",
-            product: "defc64a17de41a7e03fbfddfa23e1463bc",
-            customizerTarget: "#pitchprint_customizer",
-          });
-        } catch (e) {
-          console.error("PitchPrint failed to load:", e);
-        }
-      });
-    </script>
-  </body>
+  <script>
+    const _launchButton = document.getElementById('launch_btn');
+    const _previewDiv = document.getElementById('pp_preview_div');
+    const _loaderDiv = document.getElementById('pp_loader_div');
+
+    const ppclient = new PitchPrintClient({
+      apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
+      designId: 'defc64a17de41a7e03fbfddfa23e1463bc',
+      custom: true,
+      isvx: true
+    });
+
+    // Событие, когда редактор готов
+    ppclient.on('app-validated', () => {
+      _launchButton.removeAttribute('disabled');
+      _launchButton.onclick = () => ppclient.showApp();
+      _loaderDiv.classList.add('hidden');
+    });
+
+    // Событие, когда проект сохранён
+    ppclient.on('project-saved', (_val) => {
+      const _data = _val.data;
+      if (_data?.previews?.length) {
+        _previewDiv.innerHTML = _data.previews.map(
+          (img) => `<img src="${img}" style="max-width:100%;margin:10px 0;" />`
+        ).join('');
+      }
+    });
+  </script>
+</body>
 </html>
