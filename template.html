@@ -1,0 +1,62 @@
+<!-- template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Customize Your Envelope</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://pitchprint.io/rsc/js/client.js"></script>
+  <style>
+    .btn { padding: 12px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    .hidden { display: none; }
+    .container { max-width: 800px; margin: 40px auto; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Customize Your Envelope</h1>
+
+    <p>
+      <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
+        📥 Download CSV Template
+      </a>
+    </p>
+
+    <button class="btn" id="launch_btn" disabled>Open Editor</button>
+
+    <div id="pp_loader_div">Loading PitchPrint...</div>
+    <div id="pp_preview_div" class="mt-4"></div>
+  </div>
+
+  <script>
+    const _launchButton = document.getElementById('launch_btn');
+    const _previewDiv = document.getElementById('pp_preview_div');
+    const _loaderDiv = document.getElementById('pp_loader_div');
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const designId = urlParams.get('design') || 'defc64a17de41a7e03fbfddfa23e1463bc';
+
+    const ppclient = new PitchPrintClient({
+      apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
+      designId: designId,
+      custom: true,
+      isvx: true
+    });
+
+    ppclient.on('app-validated', () => {
+      _launchButton.removeAttribute('disabled');
+      _launchButton.onclick = () => ppclient.showApp();
+      _loaderDiv.classList.add('hidden');
+    });
+
+    ppclient.on('project-saved', (_val) => {
+      const _data = _val.data;
+      if (_data?.previews?.length) {
+        _previewDiv.innerHTML = _data.previews.map(
+          (img) => `<img src="${img}" style="max-width:100%;margin:10px 0;" />`
+        ).join('');
+      }
+    });
+  </script>
+</body>
+</html>
