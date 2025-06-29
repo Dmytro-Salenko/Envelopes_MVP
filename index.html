@@ -1,63 +1,30 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Customize Your Envelope</title>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  <script src="https://pitchprint.io/rsc/js/client.js"></script>
-  <style>
-    .btn { padding: 12px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; }
-    .hidden { display: none; }
-    .container { max-width: 800px; margin: 40px auto; font-family: sans-serif; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envelope Template Catalog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <h1>Customize Your Envelope</h1>
-
-    <!-- Кнопка для скачивания шаблона -->
-    <p>
-      <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
-        📥 Download CSV Template
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-5xl mx-auto py-10 px-4">
+    <h1 class="text-4xl font-bold text-center mb-10">Choose Your Envelope Template</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Template Card 1 -->
+      <a href="template.html?design=defc64a17de41a7e03fbfddfa23e1463bc" class="block border rounded-xl p-4 shadow hover:shadow-lg bg-white">
+        <h2 class="text-xl font-semibold mb-2">Minimalist Wedding Envelope #1</h2>
+        <img src="https://via.placeholder.com/600x300?text=Wedding+Envelope+1" alt="Template 1 preview" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-600">Elegant and minimal design, perfect for formal wedding mailings.</p>
       </a>
-    </p>
 
-    <!-- Кнопка запуска редактора -->
-    <button class="btn" id="launch_btn" disabled>Open Editor</button>
-
-    <!-- Лоадер и превью -->
-    <div id="pp_loader_div">Loading PitchPrint...</div>
-    <div id="pp_preview_div" class="mt-4"></div>
+      <!-- Template Card 2 -->
+      <a href="template.html?design=b6b43f09460ce3d3eca5e3b27e06db60" class="block border rounded-xl p-4 shadow hover:shadow-lg bg-white">
+        <h2 class="text-xl font-semibold mb-2">Minimalist Wedding Envelope #2</h2>
+        <img src="https://via.placeholder.com/600x300?text=Wedding+Envelope+2" alt="Template 2 preview" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-600">Sleek and modern layout for stylish celebrations.</p>
+      </a>
+    </div>
   </div>
-
-  <script>
-    const _launchButton = document.getElementById('launch_btn');
-    const _previewDiv = document.getElementById('pp_preview_div');
-    const _loaderDiv = document.getElementById('pp_loader_div');
-
-    const ppclient = new PitchPrintClient({
-      apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
-      designId: 'defc64a17de41a7e03fbfddfa23e1463bc',
-      custom: true,
-      isvx: true
-    });
-
-    // Событие, когда редактор готов
-    ppclient.on('app-validated', () => {
-      _launchButton.removeAttribute('disabled');
-      _launchButton.onclick = () => ppclient.showApp();
-      _loaderDiv.classList.add('hidden');
-    });
-
-    // Событие, когда проект сохранён
-    ppclient.on('project-saved', (_val) => {
-      const _data = _val.data;
-      if (_data?.previews?.length) {
-        _previewDiv.innerHTML = _data.previews.map(
-          (img) => `<img src="${img}" style="max-width:100%;margin:10px 0;" />`
-        ).join('');
-      }
-    });
-  </script>
 </body>
 </html>
