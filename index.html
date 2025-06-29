@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,13 +37,18 @@
     </div>
 
     <script>
-      window.onload = function () {
-        pitchprint.load({
-          apiKey: "key_30f5980013fbc8f44c3bf75a89ece068",
-          product: "defc64a17de41a7e03fbfddfa23e1463bc",
-          customizerTarget: "#pitchprint_customizer",
-        });
-      };
+      window.addEventListener('load', function () {
+        console.log("Initializing PitchPrint...");
+        try {
+          pitchprint.load({
+            apiKey: "key_30f5980013fbc8f44c3bf75a89ece068",
+            product: "defc64a17de41a7e03fbfddfa23e1463bc",
+            customizerTarget: "#pitchprint_customizer",
+          });
+        } catch (e) {
+          console.error("PitchPrint failed to load:", e);
+        }
+      });
     </script>
   </body>
 </html>
