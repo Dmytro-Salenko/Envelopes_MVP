@@ -75,7 +75,9 @@
     });
 
     ppclient.on('project-saved', () => {
-      ppclient.downloadPDF();
+      setTimeout(() => {
+        ppclient.downloadPDF();
+      }, 1500);
     });
   </script>
 </body>
