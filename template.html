@@ -50,17 +50,11 @@
     <button class="btn mt-4" id="launch_btn" disabled>Open Editor</button>
 
     <div id="pp_loader_div" class="mt-6">Loading PitchPrint...</div>
-    <div id="pp_preview_div" class="mt-4"></div>
-    <div class="mt-4">
-      <button class="btn hidden" id="download_pdf">📄 Download PDF</button>
-    </div>
   </div>
 
   <script>
     const _launchButton = document.getElementById('launch_btn');
-    const _previewDiv = document.getElementById('pp_preview_div');
     const _loaderDiv = document.getElementById('pp_loader_div');
-    const _downloadPDF = document.getElementById('download_pdf');
 
     const urlParams = new URLSearchParams(window.location.search);
     const designId = urlParams.get('design') || 'defc64a17de41a7e03fbfddfa23e1463bc';
@@ -77,20 +71,6 @@
       _launchButton.onclick = () => ppclient.showApp();
       _loaderDiv.classList.add('hidden');
     });
-
-    ppclient.on('project-saved', (_val) => {
-      const _data = _val.data;
-      if (_data?.previews?.length) {
-        _previewDiv.innerHTML = _data.previews.map(
-          (img) => `<img src="${img}" style="max-width:100%;margin:10px 0;" />`
-        ).join('');
-        _downloadPDF.classList.remove('hidden');
-      }
-    });
-
-    _downloadPDF.onclick = () => {
-      ppclient.downloadPDF();
-    };
   </script>
 </body>
 </html>
