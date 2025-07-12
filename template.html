@@ -60,6 +60,10 @@
       embedded: true,
       isvx: true
     });
+
+    ppclient.on('app-validated', () => {
+      ppclient.showApp();
+    });
   </script>
 </body>
 </html>
