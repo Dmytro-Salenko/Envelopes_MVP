@@ -19,15 +19,17 @@
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://pitchprint.io/rsc/js/client.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .btn { padding: 12px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; }
     .hidden { display: none; }
     .container { max-width: 800px; margin: 40px auto; font-family: sans-serif; }
   </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
   <div class="container">
-    <h1>Customize Your Envelope</h1>
+    <a href="/" class="inline-block text-blue-600 mb-4 hover:underline">← Back to catalog</a>
+    <h1 class="text-2xl font-bold mb-6">Customize Your Envelope</h1>
 
     <p>
       <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
@@ -35,9 +37,9 @@
       </a>
     </p>
 
-    <button class="btn" id="launch_btn" disabled>Open Editor</button>
+    <button class="btn mt-4" id="launch_btn" disabled>Open Editor</button>
 
-    <div id="pp_loader_div">Loading PitchPrint...</div>
+    <div id="pp_loader_div" class="mt-6">Loading PitchPrint...</div>
     <div id="pp_preview_div" class="mt-4"></div>
   </div>
 
