@@ -4,5 +4,5 @@ const envelopeTemplates = [
     title: "Minimalist wedding envelope #1",
     image: "/images/template1-5x7.jpg"
   },
-  // другие шаблоны
+  // другие шаблоны…
 ];
