@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="templates.js"></script>
+
   <style>
     body {
       font-family: 'Lora', serif;
@@ -38,8 +39,13 @@
 
   <section class="text-center py-20 px-4 bg-white">
     <h1 class="text-4xl font-extrabold mb-4">Personalized Envelope Templates</h1>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">Design elegant envelopes, upload your address list, and download print-ready PDFs — all in minutes. Ideal for weddings, events, and special occasions.</p>
-    <a href="#catalog" class="inline-block bg-[#A97155] text-white px-6 py-3 rounded-lg text-lg hover:bg-[#8A5B42] transition">Browse Templates</a>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+      Design elegant envelopes, upload your address list, and download print-ready PDFs — all in minutes.
+      Ideal for weddings, events, and special occasions.
+    </p>
+    <a href="#catalog" class="inline-block bg-[#A97155] text-white px-6 py-3 rounded-lg text-lg hover:bg-[#8A5B42] transition">
+      Browse Templates
+    </a>
   </section>
 
   <main id="catalog" class="max-w-5xl mx-auto py-10 px-4">
@@ -61,8 +67,11 @@
         card.className = "block border border-[#e0cfc2] rounded-2xl p-4 shadow-md hover:shadow-lg bg-[#fff7f0] transition";
         card.innerHTML = `
           <h2 class="text-xl font-semibold mb-2">${template.title}</h2>
-          <img src="${template.image}" alt="${template.title}" class="rounded-lg mb-2">
-          <p class="text-sm">${template.description}</p>
+          <img src="${template.image}" alt="${template.title}" class="rounded-lg mb-3 w-full object-cover">
+          <p class="text-sm mb-2">${template.description}</p>
+          <span class="inline-block bg-[#f3e7dc] text-[#a97155] text-xs font-semibold px-2 py-1 rounded-full">
+            ${template.size}
+          </span>
         `;
         container.appendChild(card);
       });
