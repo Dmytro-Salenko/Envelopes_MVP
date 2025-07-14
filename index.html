@@ -29,12 +29,20 @@
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
     }
+    @media (max-width: 640px) {
+      .text-4xl { font-size: 1.75rem; }
+      .text-3xl { font-size: 1.5rem; }
+      .text-xl { font-size: 1.125rem; }
+      .text-lg { font-size: 1rem; }
+      .px-6 { padding-left: 1rem; padding-right: 1rem; }
+      .py-20 { padding-top: 3rem; padding-bottom: 3rem; }
+    }
   </style>
 </head>
 <body>
   <header class="bg-white shadow p-4 flex justify-between items-center">
     <div class="text-2xl font-bold text-[#A97155]">Envelo.love</div>
-    <a href="#catalog" class="text-[#A97155] hover:underline">Get Started</a>
+    <a href="#catalog" class="text-[#A97155] hover:underline text-sm sm:text-base">Get Started</a>
   </header>
 
   <section class="text-center py-20 px-4 bg-white">
