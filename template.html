@@ -62,16 +62,22 @@
       isvx: true
     });
 
+    let editorStarted = false;
+
     document.getElementById('start_editor').addEventListener('click', () => {
       document.getElementById('setup-block').style.display = 'none';
       document.getElementById('pitchprint-holder').style.display = 'block';
       ppclient.showApp();
+      editorStarted = true;
     });
 
     ppclient.on('project-saved', () => {
-      setTimeout(() => {
-        ppclient.downloadPDF();
-      }, 1200);
+      // повторно показываем редактор после Submit
+      if (editorStarted) {
+        setTimeout(() => {
+          ppclient.showApp();
+        }, 1000);
+      }
     });
   </script>
 </body>
