@@ -97,5 +97,15 @@
       });
     });
   </script>
+
+  <script>
+    // Tracking button events
+    const downloadButton = document.querySelector('a[href*="drive.google.com"]');
+    if (downloadButton) {
+      downloadButton.addEventListener('click', () => {
+        if (window.plausible) plausible('Download CSV');
+      });
+    }
+  </script>
 </body>
 </html>
