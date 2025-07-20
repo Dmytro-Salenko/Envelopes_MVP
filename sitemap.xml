@@ -2,12 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://envelo.love/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2025-07-20</lastmod>
   </url>
   <url>
     <loc>https://envelo.love/template.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-07-20</lastmod>
+  </url>
+  <url>
+    <loc>https://envelo.love/faq.html</loc>
+    <lastmod>2025-07-20</lastmod>
+  </url>
+  <url>
+    <loc>https://envelo.love/thanks.html</loc>
+    <lastmod>2025-07-20</lastmod>
   </url>
 </urlset>
