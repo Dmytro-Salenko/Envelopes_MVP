@@ -33,45 +33,42 @@
     .btn { padding: 12px 20px; background: #A97155; color: white; border: none; border-radius: 6px; cursor: pointer; }
     .btn:hover { background: #8A5B42; }
     .hidden { display: none; }
-    .container { max-width: 800px; margin: 40px auto; font-family: 'Lora', serif; }
   </style>
 </head>
 <body class="bg-[#fdf8f4] text-[#4b4b4b]">
-  <div class="max-w-6xl mx-auto px-4 py-10">
+  <div class="max-w-6xl mx-auto px-4 py-12" id="setup-block">
     <a href="/" class="inline-block text-[#A97155] mb-4 hover:underline">← Back to catalog</a>
-    <h1 class="text-2xl font-bold mb-6">Customize Your Envelope</h1>
 
-    <div class="container" id="setup-block">
-  <a href="/" class="inline-block text-[#A97155] mb-4 hover:underline">← Back to catalog</a>
+    <div class="flex flex-col lg:flex-row items-start gap-10">
+      <!-- Left Column -->
+      <div class="lg:w-1/2 w-full">
+        <h1 class="text-3xl font-bold mb-6">Customize Your Envelope</h1>
+        <p>
+          <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
+            📥 Download CSV Template
+          </a>
+        </p>
+        <button class="btn mt-4" id="start_editor">Start Editor</button>
+      </div>
 
-  <div class="flex flex-col lg:flex-row items-start gap-10">
-    <!-- Левая колонка -->
-    <div class="lg:w-1/2 w-full">
-      <h1 class="text-2xl font-bold mb-6">Customize Your Envelope</h1>
-      <p>
-        <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
-          📥 Download CSV Template
-        </a>
-      </p>
-      <button class="btn mt-4" id="start_editor">Start Editor</button>
-    </div>
-
-    <!-- Правая колонка: Видео -->
-    <div class="lg:w-1/2 w-full">
-      <h2 class="text-xl font-semibold mb-4">Watch How It Works</h2>
-      <div class="relative w-full" style="padding-top: 56.25%; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-        <iframe
-          class="absolute top-0 left-0 w-full h-full"
-          src="https://www.youtube.com/embed/u04SF3pYrKg"
-          title="How to use Envelo.love"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <!-- Right Column: Video -->
+      <div class="lg:w-1/2 w-full">
+        <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
+        <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
+          <iframe
+            class="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/u04SF3pYrKg"
+            title="How to use Envelo.love"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div id="pitchprint-holder" style="width:100%; height:1000px; display: none;"></div>
 
   <script>
     const designId = new URLSearchParams(window.location.search).get('design') || 'defc64a17de41a7e03fbfddfa23e1463bc';
@@ -86,7 +83,7 @@
     let editorStarted = false;
 
     document.getElementById('start_editor').addEventListener('click', () => {
-      document.getElementById('start_editor').style.display = 'none';
+      document.getElementById('setup-block').style.display = 'none';
       document.getElementById('pitchprint-holder').style.display = 'block';
       ppclient.showApp();
       editorStarted = true;
