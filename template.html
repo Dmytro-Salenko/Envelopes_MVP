@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +13,11 @@
   <meta property="og:description" content="Create beautiful envelopes online. Upload your address list and generate print-ready designs for special occasions.">
   <meta property="og:image" content="https://envelo.love/favicon_envelo.png">
   <meta property="og:url" content="https://envelo.love/template.html">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" href="/favicon_envelo.png">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
-  <!-- Scripts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://pitchprint.io/rsc/js/client.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -46,14 +42,6 @@
     .btn:hover {
       background: #8A5B42;
     }
-    .hidden {
-      display: none;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      font-family: 'Lora', serif;
-    }
   </style>
 </head>
 <body class="bg-[#fdf8f4] text-[#4b4b4b]">
@@ -61,7 +49,6 @@
     <a href="/" class="inline-block text-[#A97155] mb-4 hover:underline">← Back to catalog</a>
 
     <div class="flex flex-col lg:flex-row items-start gap-10">
-      <!-- Left Column -->
       <div class="lg:w-1/2 w-full">
         <h1 class="text-3xl font-bold mb-6">Customize Your Envelope</h1>
         <p>
@@ -72,7 +59,6 @@
         <button class="btn mt-4" id="start_editor">Start Editor</button>
       </div>
 
-      <!-- Right Column: Video -->
       <div class="lg:w-1/2 w-full">
         <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
         <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
@@ -117,11 +103,9 @@
       editorStarted = true;
     });
 
-    ppclient.on('project-saved', () => {
-      if (editorStarted) {
-        setTimeout(() => {
-          ppclient.showApp();
-        }, 1000);
+    ppclient.on('project-saved', (data) => {
+      if (editorStarted && data && data.projectRef) {
+        window.location.href = `thankyou.html?ref=${data.projectRef}`;
       }
     });
   </script>
