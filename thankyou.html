@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Insert analytics scripts here if needed -->
+  <!-- Optional analytics scripts -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,7 +24,8 @@
     <img src="/favicon_envelo.png" alt="Envelo.love" class="w-16 mb-4">
     <h1 class="text-3xl font-bold mb-2">Your envelope is ready!</h1>
     <p class="text-lg mb-6">Your design was successfully saved and is now ready for download.</p>
-    <a href="https://client.pitchprint.io/render/pdf?projectRef=__PROJECT_REF__" 
+    <a id="download-link"
+       href="#"
        class="bg-[#A97155] hover:bg-[#8A5B42] text-white px-6 py-3 rounded-lg text-lg transition"
        download>
       📄 Download PDF
@@ -33,5 +34,18 @@
       Having trouble? Try refreshing the page or contact us at <a href="mailto:hello@envelo.love" class="underline text-[#A97155]">hello@envelo.love</a>.
     </p>
   </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    const link = document.getElementById('download-link');
+    if (ref && link) {
+      link.href = `https://client.pitchprint.io/render/pdf?projectRef=${ref}`;
+    } else {
+      link.innerText = 'Something went wrong...';
+      link.classList.add('bg-gray-400', 'cursor-not-allowed');
+      link.removeAttribute('download');
+    }
+  </script>
 </body>
 </html>
