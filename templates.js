@@ -22,6 +22,7 @@ const envelopeTemplates = [
     title: "Minimalist Wedding Envelope #4",
     image: "/images/template4-5x7.jpg",
     description: "A modern and romantic design, perfect for elegant celebrations.\nSize: 7×5 inches."
+ },
   {
   id: '969f0ef2e6709d40fc78abe830765c47',
   title: 'Minimalist wedding envelope #5',
