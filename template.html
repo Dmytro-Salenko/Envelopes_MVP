@@ -25,6 +25,7 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://pitchprint.io/rsc/js/client.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/templates.js"></script>
 
   <style>
     body {
@@ -124,6 +125,22 @@
         }, 1000);
       }
     });
+
+    // SEO подстановка по шаблону
+    const currentTemplate = envelopeTemplates.find(t => t.id === designId);
+    if (currentTemplate) {
+      const cleanDesc = currentTemplate.description.replace('\n', ' ');
+      document.title = `${currentTemplate.title} | Envelo.love`;
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", cleanDesc);
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute("content", currentTemplate.title);
+
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute("content", cleanDesc);
+    }
   </script>
 </body>
 </html>
