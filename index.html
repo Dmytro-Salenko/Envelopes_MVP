@@ -86,38 +86,27 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.getElementById("template-list");
-      const sizeFilter = document.getElementById("filter-size");
-      const tagFilter = document.getElementById("filter-tag");
-
-      function renderTemplates() {
-        container.innerHTML = "";
-        const selectedSize = sizeFilter.value;
-        const selectedTag = tagFilter.value;
-
-        envelopeTemplates.forEach(template => {
-          const matchesSize = !selectedSize || template.size === selectedSize;
-          const matchesTag = !selectedTag || (template.tags && template.tags.includes(selectedTag));
-
-          if (matchesSize && matchesTag) {
-            const card = document.createElement("a");
-            card.href = `template.html?design=${template.id}`;
-            card.className = "block border border-[#e0cfc2] rounded-2xl p-4 shadow-md hover:shadow-lg bg-[#fff7f0] transition";
-            card.innerHTML = `
-              <h2 class="text-xl font-semibold mb-2">${template.title}</h2>
-              <img src="${template.image}" alt="${template.title}" class="rounded-lg mb-2">
-              <p class="text-sm">${template.description}</p>
-            `;
-            container.appendChild(card);
-          }
-        });
-      }
-
-      sizeFilter.addEventListener("change", renderTemplates);
-      tagFilter.addEventListener("change", renderTemplates);
-      renderTemplates();
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("template-list");
+    envelopeTemplates.forEach(template => {
+      const card = document.createElement("a");
+      card.href = `template.html?design=${template.id}`;
+      card.className = "block border border-[#e0cfc2] rounded-2xl p-4 shadow-md hover:shadow-lg bg-[#fff7f0] transition";
+      
+      const [descMain, sizeText] = template.description.split('\n');
+      
+      card.innerHTML = `
+        <h2 class="text-xl font-semibold mb-2">${template.title}</h2>
+        <img src="${template.image}" alt="${template.title}" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700 mb-2">${descMain}</p>
+        <span class="inline-block bg-[#f2eae4] text-[#A97155] px-2 py-1 rounded text-xs font-medium">
+          ${sizeText || ''}
+        </span>
+      `;
+      
+      container.appendChild(card);
     });
-  </script>
+  });
+</script>
 </body>
 </html>
