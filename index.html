@@ -19,13 +19,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="templates.js"></script>
   <script async src="https://cdn.seez-analytics.com/ec755e71-f887-4144-8b45-971423e9386e.js"></script>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "sf4sgxon4c");
-  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,55 +54,25 @@
     <a href="#catalog" class="inline-block bg-[#A97155] text-white px-6 py-3 rounded-lg text-lg hover:bg-[#8A5B42] transition">Browse Templates</a>
   </section>
 
-  <section class="bg-[#fdf8f4] py-16 px-4 text-center">
-    <h2 class="text-3xl font-bold mb-4">Watch How It Works</h2>
-    <p class="text-gray-600 mb-6">See how to create beautiful envelopes in just a few steps.</p>
-    <div class="relative max-w-3xl mx-auto overflow-hidden rounded-xl shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
-      <iframe
-        class="absolute top-[-7%] left-0 w-full h-[115%]"
-        src="https://www.youtube.com/embed/u04SF3pYrKg"
-        title="How to use Envelo.love"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-  </section>
-
   <main id="catalog" class="max-w-5xl mx-auto py-10 px-4">
-    <h2 class="text-3xl font-bold text-center mb-10">Choose Your Envelope Template</h2>
+    <h2 class="text-3xl font-bold text-center mb-6">Choose Your Envelope Template</h2>
+
+    <div class="flex flex-wrap gap-4 justify-center mb-8">
+      <select id="filter-size" class="border border-gray-300 rounded-lg px-4 py-2">
+        <option value="">All Sizes</option>
+        <option value="5x7">5x7</option>
+        <option value="6x4">6x4</option>
+      </select>
+      <select id="filter-tag" class="border border-gray-300 rounded-lg px-4 py-2">
+        <option value="">All Styles</option>
+        <option value="Minimalist Wedding Envelope">Minimalist</option>
+        <option value="Floral Wedding Envelope">Floral</option>
+        <option value="Most popular Envelope">Most Popular</option>
+      </select>
+    </div>
+
     <div id="template-list" class="grid grid-cols-1 sm:grid-cols-2 gap-8"></div>
   </main>
-
-  <section class="bg-[#fff7f0] py-16 px-4 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4">About Envelo.love</h2>
-      <p class="text-lg text-gray-700 mb-4">
-        <strong>Envelo.love</strong> is a small indie project, built with care by a couple of designers and print nerds who believe that even the smallest detail — like an envelope — deserves attention.
-      </p>
-      <p class="text-lg text-gray-700 mb-4">
-        We created this tool to help people easily design and print elegant envelopes without needing design software or technical skills.
-      </p>
-      <p class="text-lg text-gray-700 mb-4">
-        Our templates are minimalist, print-ready, and perfect for weddings, events, and personal mailings. Just upload your address list, click, and you're done.
-      </p>
-      <p class="text-lg text-gray-700">
-        If you value simplicity, good typography, and beautiful printed things — <strong>this project is for you</strong>.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact" class="max-w-xl mx-auto py-16 px-4">
-    <h2 class="text-3xl font-bold text-center mb-6">Contact Us</h2>
-    <form action="https://formsubmit.co/hello@envelo.love" method="POST" class="space-y-4">
-      <input type="hidden" name="_next" value="https://envelo.love/thanks.html">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 rounded-lg p-3">
-      <input type="email" name="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded-lg p-3">
-      <textarea name="message" placeholder="Your Message" required rows="5" class="w-full border border-gray-300 rounded-lg p-3"></textarea>
-      <button type="submit" class="bg-[#A97155] text-white px-6 py-3 rounded-lg hover:bg-[#8A5B42] transition">Send Message</button>
-    </form>
-  </section>
 
   <footer class="bg-white text-center py-6 mt-10 text-sm text-gray-500 border-t">
     <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="text-[#A97155] hover:underline">hello@envelo.love</a></p>
@@ -125,17 +88,35 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const container = document.getElementById("template-list");
-      envelopeTemplates.forEach(template => {
-        const card = document.createElement("a");
-        card.href = `template.html?design=${template.id}`;
-        card.className = "block border border-[#e0cfc2] rounded-2xl p-4 shadow-md hover:shadow-lg bg-[#fff7f0] transition";
-        card.innerHTML = `
-          <h2 class="text-xl font-semibold mb-2">${template.title}</h2>
-          <img src="${template.image}" alt="${template.title}" class="rounded-lg mb-2">
-          <p class="text-sm">${template.description}</p>
-        `;
-        container.appendChild(card);
-      });
+      const sizeFilter = document.getElementById("filter-size");
+      const tagFilter = document.getElementById("filter-tag");
+
+      function renderTemplates() {
+        container.innerHTML = "";
+        const selectedSize = sizeFilter.value;
+        const selectedTag = tagFilter.value;
+
+        envelopeTemplates.forEach(template => {
+          const matchesSize = !selectedSize || template.size === selectedSize;
+          const matchesTag = !selectedTag || (template.tags && template.tags.includes(selectedTag));
+
+          if (matchesSize && matchesTag) {
+            const card = document.createElement("a");
+            card.href = `template.html?design=${template.id}`;
+            card.className = "block border border-[#e0cfc2] rounded-2xl p-4 shadow-md hover:shadow-lg bg-[#fff7f0] transition";
+            card.innerHTML = `
+              <h2 class="text-xl font-semibold mb-2">${template.title}</h2>
+              <img src="${template.image}" alt="${template.title}" class="rounded-lg mb-2">
+              <p class="text-sm">${template.description}</p>
+            `;
+            container.appendChild(card);
+          }
+        });
+      }
+
+      sizeFilter.addEventListener("change", renderTemplates);
+      tagFilter.addEventListener("change", renderTemplates);
+      renderTemplates();
     });
   </script>
 </body>
