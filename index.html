@@ -60,14 +60,15 @@
     <div class="flex flex-wrap gap-4 justify-center mb-8">
       <select id="filter-size" class="border border-gray-300 rounded-lg px-4 py-2">
         <option value="">All Sizes</option>
-        <option value="5x7">5x7</option>
-        <option value="6x4">6x4</option>
+        <option value="7x5">7×5</option>
+        <option value="6x4">6×4</option>
       </select>
-     <select id="filter-size" class="border border-gray-300 rounded-lg px-4 py-2">
-  <option value="">All Sizes</option>
-  <option value="7x5">7×5</option>
-  <option value="6x4">6×4</option>
-</select>
+      <select id="filter-tag" class="border border-gray-300 rounded-lg px-4 py-2">
+        <option value="">All Styles</option>
+        <option value="Minimalist">Minimalist</option>
+        <option value="Floral">Floral</option>
+        <option value="Popular">Most Popular</option>
+      </select>
     </div>
 
     <div id="template-list" class="grid grid-cols-1 sm:grid-cols-2 gap-8"></div>
@@ -98,7 +99,7 @@
 
         const filtered = envelopeTemplates.filter(template => {
           const sizeMatch = !selectedSize || template.size === selectedSize;
-          const tagMatch = !selectedTag || template.tag === selectedTag;
+          const tagMatch = !selectedTag || (template.tag && template.tag === selectedTag);
           return sizeMatch && tagMatch;
         });
 
