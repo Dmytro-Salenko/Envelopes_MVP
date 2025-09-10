@@ -2,55 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>How to Print Wedding Envelopes at Home — Envelo.love</title>
-  <meta name="description" content="Learn how to print custom wedding envelopes at home using free editable templates. Step-by-step guide with tools, tips, and recommended settings." />
-  <meta name="keywords" content="print wedding envelopes, printable envelope templates, editable envelope design, wedding address PDF, how to print RSVP envelopes" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>How to Print Wedding Envelopes at Home (A7 5×7 & A6 6×4) — Envelo.love</title>
+  <meta name="description" content="Step-by-step guide to print wedding envelopes at home: choose a template, upload a CSV, export a print-ready PDF, and set correct printer options for A7 (5×7) and A6 (6×4).">
+
+  <link rel="canonical" href="https://envelo.love/how-to-print.html">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Envelo.love">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Print Wedding Envelopes at Home">
+  <meta property="og:description" content="Choose a template, upload a CSV, export a print-ready PDF, and print on A7 (5×7) or A6 (6×4) with the right settings.">
+  <meta property="og:image" content="https://envelo.love/favicon_envelo.png">
+  <meta property="og:url" content="https://envelo.love/how-to-print.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="icon" href="/favicon_envelo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { background:#fdf8f4; color:#4b4b4b; font-family:'Lora', serif; }
+    h1,h2,h3 { font-family:'Playfair Display', serif; }
+    .link { color:#A97155; }
+    .link:hover { text-decoration: underline; }
+    .callout { background:#fff; border:1px solid #e8ddd3; border-radius:12px; padding:14px 16px; }
+    .toc a { color:#A97155; }
+  </style>
+
+  <!-- JSON-LD HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Print Wedding Envelopes at Home",
+    "description": "A simple workflow to design and print personalized wedding envelopes with Envelo.love and a home printer.",
+    "totalTime": "PT20M",
+    "tool": [
+      { "@type": "HowToTool", "name": "Inkjet or laser printer" },
+      { "@type": "HowToTool", "name": "Computer with browser" }
+    ],
+    "supply": [
+      { "@type": "HowToSupply", "name": "A7 (5×7 in) or A6 (6×4 in) envelopes" },
+      { "@type": "HowToSupply", "name": "CSV address list" },
+      { "@type": "HowToSupply", "name": "Print-ready PDF from Envelo.love" }
+    ],
+    "step": [
+      { "@type": "HowToStep", "name": "Choose size", "url": "https://envelo.love/how-to-print.html#size", "text": "Pick A7 (5×7) or A6 (6×4) envelopes." },
+      { "@type": "HowToStep", "name": "Pick a template", "url": "https://envelo.love/how-to-print.html#template", "text": "Open the template catalog and choose a design." },
+      { "@type": "HowToStep", "name": "Upload CSV", "url": "https://envelo.love/how-to-print.html#csv", "text": "Download the sample CSV, fill addresses, and upload." },
+      { "@type": "HowToStep", "name": "Customize", "url": "https://envelo.love/how-to-print.html#customize", "text": "Adjust fonts, sizes, spacing and layout." },
+      { "@type": "HowToStep", "name": "Export PDF", "url": "https://envelo.love/how-to-print.html#export", "text": "Save and export a high-resolution, print-ready PDF." },
+      { "@type": "HowToStep", "name": "Print", "url": "https://envelo.love/how-to-print.html#print", "text": "Use correct paper size, 100% scale, test print and align." }
+    ]
+  }
+  </script>
 </head>
-<body class="bg-[#fdf8f4] text-[#4b4b4b] font-serif">
+<body>
   <div class="max-w-3xl mx-auto px-6 py-12">
-    <h1 class="text-4xl font-bold mb-6">How to Print Wedding Envelopes at Home</h1>
-    
-    <p class="mb-6 text-lg">
-      Want to print beautiful wedding envelopes without expensive software or complicated tools? Here's a simple, step-by-step guide to create and print custom envelopes using <a href="https://envelo.love" class="text-[#A97155] hover:underline font-semibold">Envelo.love</a> — an online editor for editable and printable templates.
+    <h1 class="text-3xl lg:text-4xl font-bold mb-4">How to Print Wedding Envelopes at Home</h1>
+    <p class="mb-8 text-lg">
+      This step-by-step guide shows how to design and print <strong>wedding envelopes</strong> using
+      <a href="/" class="link font-semibold">Envelo.love templates</a>. You’ll upload a CSV address list,
+      export a <strong>print-ready PDF</strong>, and print on <strong>A7 (5×7)</strong> or <strong>A6 (6×4)</strong>.
     </p>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">1. Choose Your Envelope Size</h2>
-    <p class="mb-4">Most wedding envelopes are 7×5 inches. All templates at Envelo.love are pre-sized for this format and print easily on standard home printers.</p>
+    <!-- Table of contents -->
+    <nav class="toc callout mb-8" aria-label="Table of contents">
+      <ol class="grid gap-2 list-decimal pl-5">
+        <li><a href="#size">Choose Your Envelope Size</a></li>
+        <li><a href="#template">Pick a Template</a></li>
+        <li><a href="#csv">Upload Your Address List (CSV)</a></li>
+        <li><a href="#customize">Customize Fonts and Layout</a></li>
+        <li><a href="#export">Export a Print-ready PDF</a></li>
+        <li><a href="#print">Print at Home or a Print Shop</a></li>
+      </ol>
+    </nav>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">2. Pick a Template</h2>
-    <p class="mb-4">Visit the <a href="/" class="text-[#A97155] hover:underline">template catalog</a> and choose a design that matches your wedding style — modern, script, or minimalist. All templates are editable in your browser.</p>
+    <section id="size" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">1) Choose Your Envelope Size</h2>
+      <p>Most wedding invitations use <strong>A7 (5×7 in)</strong>; RSVPs often use <strong>A6 (6×4 in)</strong>. All Envelo.love templates are pre-sized for these formats and export at exact dimensions, which makes printing straightforward.</p>
+    </section>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">3. Upload Your Address List</h2>
-    <p class="mb-4">Use the downloadable CSV file to import your guest addresses. The system will automatically generate personalized envelopes for each guest using a mail merge system.</p>
+    <section id="template" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">2) Pick a Template</h2>
+      <p>Open the <a href="/" class="link">template catalog</a> and choose a style that fits your wedding — minimalist, modern, or script. Templates open in the browser; no software to install.</p>
+    </section>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">4. Customize Fonts and Layout</h2>
-    <p class="mb-4">Use the online editor to adjust fonts, text size, spacing, or position. No installation or design knowledge required — everything works directly in your browser.</p>
+    <section id="csv" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">3) Upload Your Address List (CSV)</h2>
+      <p>Download the sample CSV and keep one row per envelope: <em>Name</em>, <em>Street</em>, <em>City</em>, <em>State</em>, <em>ZIP</em>. Avoid merged cells and extra line breaks.</p>
+      <p class="mt-2">
+        <a class="inline-block bg-[#A97155] text-white px-4 py-2 rounded-lg link" target="_blank" href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing">📥 Download CSV Template</a>
+      </p>
+    </section>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">5. Export Your Design</h2>
-    <p class="mb-4">Click “Save” to generate a high-resolution PDF, ready for print. You’ll receive a preview and a final print file with all addresses included.</p>
+    <section id="customize" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">4) Customize Fonts and Layout</h2>
+      <p>Use the editor to adjust fonts, sizes, spacing, and positioning. For best readability, keep body text at least 6–8 pt and use high-contrast colors (dark ink on light paper).</p>
+    </section>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">6. Print at Home or at a Print Shop</h2>
-    <p class="mb-4">
-      You can print your envelopes at home using a standard inkjet or laser printer. Use thick, high-quality envelope paper (like 80 lb or 100 gsm) and set your printer to “envelope” mode or manually choose a 7×5 inch page size.
-    </p>
+    <section id="export" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">5) Export a Print-ready PDF</h2>
+      <p>Click “Save” to generate a high-resolution PDF that includes all envelopes from your CSV. You can preview before printing.</p>
+    </section>
 
-    <ul class="list-disc ml-6 mt-2 mb-4">
-      <li>Use the rear feed tray if your printer has one</li>
-      <li>Choose “Best quality” or “Photo” mode in settings</li>
-      <li>Run a test print on regular paper first</li>
-    </ul>
-
-    <p class="mb-4">
-      Alternatively, you can take the generated PDF file to a local print shop or copy center. Since the file is already formatted for professional printing, you’ll just need to bring a USB drive or email it to the shop. Most printers will be able to handle the format with no issues.
-    </p>
-
-    <h2 class="text-2xl font-semibold mt-10 mb-4">Bonus: Use Envelo.love for Free</h2>
-    <p class="mb-6">
-      You can try all templates for free at <a href="https://envelo.love" class="text-[#A97155] hover:underline font-semibold">Envelo.love</a>. No sign-up required, instant editing in your browser.
-    </p>
+    <section id="print" class="mb-10">
+      <h2 class="text-2xl font-semibold mb-3">6) Print at Home or a Print Shop</h2>
+      <div class="callout">
+        <ul class="list-disc ml-6">
+          <li><strong>Paper size:</strong> choose <em>Envelope A7 (5×7)</em> or <em>A6 (6×4)</em> in the printer dialog.</li>
+          <li><strong>Scale:</strong> set to <em>100%</em> (disable “Fit to page”).</li>
+          <li><strong>Tray:</strong> use the rear/manual feed if available; insert envelopes face-down as your printer requires.</li>
+          <li><strong>Quality:</strong> select “Best” or “Photo” for inkjets; for lasers choose “Thick”/“Cardstock”.</li>
+          <li><strong>Alignment:</strong> print one test page first; if text shifts, try “Center” alignment and turn off auto scaling.</li>
+        </ul>
+      </div>
+      <p class="mt-4">Prefer a shop? Take the generated PDF on a USB drive or email it to a local print shop — it’s already set up for professional printing.</p>
+    </section>
 
     <hr class="my-8 border-t border-[#ddd]" />
 
