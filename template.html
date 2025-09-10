@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Базовые мета: будут перезаписаны скриптом на основе данных шаблона -->
   <title>Envelope Template | Envelo.love</title>
-  <meta name="description" content="Personalize your wedding envelope design and generate print-ready PDFs in minutes. Perfect for invitations and special events.">
+  <meta name="description" content="Personalize your wedding envelope design and generate print-ready PDFs in minutes.">
   <link rel="canonical" href="https://envelo.love/template.html">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Envelo.love">
@@ -28,36 +29,14 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://pitchprint.io/rsc/js/client.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/templates.js"></script>
+  <script defer src="/templates.js"></script>
 
   <style>
-    body {
-      font-family: 'Lora', serif;
-      background-color: #fdf8f4;
-      color: #4b4b4b;
-    }
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-    }
-    .btn {
-      padding: 12px 20px;
-      background: #A97155;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #8A5B42;
-    }
-    .hidden {
-      display: none;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      font-family: 'Lora', serif;
-    }
+    body { font-family: 'Lora', serif; background-color: #fdf8f4; color: #4b4b4b; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    .btn { padding: 12px 20px; background: #A97155; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    .btn:hover { background: #8A5B42; }
+    .badge { display: inline-block; background: #f2eae4; color: #A97155; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
   </style>
 </head>
 <body class="bg-[#fdf8f4] text-[#4b4b4b]">
@@ -67,13 +46,19 @@
     <div class="flex flex-col lg:flex-row items-start gap-10">
       <!-- Left Column -->
       <div class="lg:w-1/2 w-full">
-        <h1 id="template-title" class="text-3xl font-bold mb-6">Customize Your Envelope</h1>
-        <p>
+        <h1 id="template-title" class="text-3xl font-bold mb-2">Customize Your Envelope</h1>
+        <p id="template-size" class="mb-6"><span class="badge" title="Size"></span></p>
+
+        <div id="template-image-wrap" class="mb-6 hidden">
+          <img id="template-image" src="" alt="" class="rounded-xl border border-[#e8ddd3] shadow-sm" loading="lazy" decoding="async">
+        </div>
+
+        <p class="mb-4">
           <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
             📥 Download CSV Template
           </a>
         </p>
-        <button class="btn mt-4" id="start_editor">Start Editor</button>
+        <button class="btn mt-2" id="start_editor">Start Editor</button>
       </div>
 
       <!-- Right Column: Video -->
@@ -98,84 +83,131 @@
   <footer class="bg-white text-center py-6 mt-10 text-sm text-gray-500 border-t">
     <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="text-[#A97155] hover:underline">hello@envelo.love</a></p>
     <p class="mt-1">
-      &copy; 2025 Envelo.love — 
-      <a href="#" class="text-[#A97155] hover:underline">Visit us on Etsy</a> · 
-      <a href="/faq.html" class="text-[#A97155] hover:underline">FAQ</a> · 
-      <a href="/how-to-print.html" class="text-[#A97155] hover:underline">How to Print Envelopes</a> · 
+      &copy; 2025 Envelo.love —
+      <a href="#" class="text-[#A97155] hover:underline">Visit us on Etsy</a> ·
+      <a href="/faq.html" class="text-[#A97155] hover:underline">FAQ</a> ·
+      <a href="/how-to-print.html" class="text-[#A97155] hover:underline">How to Print Envelopes</a> ·
       <a href="/privacy.html" class="text-[#A97155] hover:underline">Privacy Policy</a>
     </p>
   </footer>
 
+  <!-- Логика после загрузки templates.js -->
   <script>
-    const designId = new URLSearchParams(window.location.search).get('design') || 'defc64a17de41a7e03fbfddfa23e1463bc';
-    const currentTemplate = envelopeTemplates.find(t => t.id === designId);
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Определяем шаблон: по /templates/:slug или по ?design=ID
+      const path = window.location.pathname;
+      const slug = path.startsWith('/templates/')
+        ? decodeURIComponent(path.replace('/templates/','').replace(/\/+$/,''))
+        : null;
+      const idFromQuery = new URLSearchParams(window.location.search).get('design');
 
-    const ppclient = new PitchPrintClient({
-      apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
-      designId: designId,
-      embedded: true,
-      isvx: true
-    });
+      let currentTemplate = null;
+      if (typeof envelopeTemplates !== 'undefined' && Array.isArray(envelopeTemplates)) {
+        if (slug) currentTemplate = envelopeTemplates.find(t => t.slug === slug);
+        if (!currentTemplate && idFromQuery) currentTemplate = envelopeTemplates.find(t => t.id === idFromQuery);
+        if (!currentTemplate) currentTemplate = envelopeTemplates[0];
+      }
 
-    let editorStarted = false;
+      // 2) Авто-подмена URL на красивый, если зашли по ?design=ID
+      if (currentTemplate && idFromQuery && currentTemplate.slug) {
+        const prettyUrl = `/templates/${currentTemplate.slug}`;
+        if (window.location.pathname !== prettyUrl) {
+          window.history.replaceState({}, '', prettyUrl);
+        }
+      }
 
-    document.getElementById('start_editor').addEventListener('click', () => {
-      document.getElementById('setup-block').style.display = 'none';
-      document.getElementById('pitchprint-holder').style.display = 'block';
-      ppclient.showApp();
-      editorStarted = true;
-    });
+      // 3) Инициализация PitchPrint по ID
+      const designId = currentTemplate?.id || idFromQuery || 'defc64a17de41a7e03fbfddfa23e1463bc';
+      const ppclient = new PitchPrintClient({
+        apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
+        designId,
+        embedded: true,
+        isvx: true
+      });
 
-    ppclient.on('project-saved', () => {
-      if (editorStarted) {
-        setTimeout(() => {
-          ppclient.showApp();
-        }, 1000);
+      let editorStarted = false;
+      document.getElementById('start_editor').addEventListener('click', () => {
+        document.getElementById('setup-block').style.display = 'none';
+        document.getElementById('pitchprint-holder').style.display = 'block';
+        ppclient.showApp();
+        editorStarted = true;
+      });
+
+      ppclient.on('project-saved', () => {
+        if (editorStarted) setTimeout(() => { ppclient.showApp(); }, 1000);
+      });
+
+      // 4) SEO и контент на странице из данных шаблона
+      if (currentTemplate) {
+        const titleText = currentTemplate.seoTitle || `${currentTemplate.title} | Envelo.love`;
+        const descText  = currentTemplate.seoDescription || currentTemplate.description || 'Personalize your wedding envelope and download a print-ready PDF.';
+        const imageAbs  = currentTemplate.image ? `https://envelo.love${currentTemplate.image}` : 'https://envelo.love/favicon_envelo.png';
+        const pageUrl   = window.location.href; // уже красивый, если был редирект
+
+        // Title / Description
+        document.title = titleText;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', descText);
+
+        // Canonical / OG
+        const linkCanonical = document.querySelector('link[rel="canonical"]');
+        if (linkCanonical) linkCanonical.setAttribute('href', pageUrl);
+
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', titleText);
+
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', descText);
+
+        const ogImage = document.querySelector('meta[property="og:image"]');
+        if (ogImage) ogImage.setAttribute('content', imageAbs);
+
+        const ogUrl = document.querySelector('meta[property="og:url"]');
+        if (ogUrl) ogUrl.setAttribute('content', pageUrl);
+
+        // H1 / Size badge / Preview image
+        const h1 = document.getElementById('template-title');
+        if (h1) h1.textContent = currentTemplate.title;
+
+        const sizeWrap = document.getElementById('template-size');
+        if (sizeWrap && sizeWrap.firstElementChild) {
+          sizeWrap.firstElementChild.textContent = currentTemplate.sizeText || (currentTemplate.size ? currentTemplate.size.toUpperCase() : '');
+        }
+
+        if (currentTemplate.image) {
+          const imgWrap = document.getElementById('template-image-wrap');
+          const img = document.getElementById('template-image');
+          if (img && imgWrap) {
+            img.src = currentTemplate.image;
+            img.alt = `${currentTemplate.title} — ${currentTemplate.sizeText || currentTemplate.size || ''}`.trim();
+            imgWrap.classList.remove('hidden');
+          }
+        }
+
+        // JSON-LD Product
+        const jsonLd = {
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": currentTemplate.title,
+          "image": [ imageAbs ],
+          "description": descText,
+          "brand": { "@type": "Brand", "name": "Envelo.love" },
+          "sku": currentTemplate.id,
+          "offers": {
+            "@type": "Offer",
+            "url": pageUrl,
+            "priceCurrency": "USD",
+            "price": String(currentTemplate.priceUSD ?? 0),
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
+          }
+        };
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(jsonLd);
+        document.head.appendChild(script);
       }
     });
-
-    // SEO подстановка по шаблону
-    if (currentTemplate) {
-      const cleanDesc = currentTemplate.description.replace('\n', ' ');
-      document.title = `${currentTemplate.title} | Custom Wedding Envelope | Envelo.love`;
-
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", cleanDesc);
-
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.setAttribute("content", currentTemplate.title);
-
-      const ogDesc = document.querySelector('meta[property="og:description"]');
-      if (ogDesc) ogDesc.setAttribute("content", cleanDesc);
-
-      const ogImage = document.querySelector('meta[property="og:image"]');
-      if (ogImage && currentTemplate.image) ogImage.setAttribute("content", `https://envelo.love/${currentTemplate.image}`);
-
-      const h1 = document.getElementById("template-title");
-      if (h1) h1.textContent = currentTemplate.title;
-
-      // JSON-LD Product schema
-      const jsonLd = {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": currentTemplate.title,
-        "image": `https://envelo.love/${currentTemplate.image}`,
-        "description": cleanDesc,
-        "brand": { "@type": "Brand", "name": "Envelo.love" },
-        "offers": {
-          "@type": "Offer",
-          "url": window.location.href,
-          "priceCurrency": "USD",
-          "price": "0",
-          "availability": "https://schema.org/InStock",
-          "itemCondition": "https://schema.org/NewCondition"
-        }
-      };
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.textContent = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
-    }
   </script>
 </body>
 </html>
