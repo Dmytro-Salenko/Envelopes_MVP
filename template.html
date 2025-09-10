@@ -52,42 +52,41 @@
     </p>
 
     <!-- Две колонки + разделитель -->
-    <div class="grid grid-cols-1 lg:[grid-template-columns:1fr_auto_1fr] gap-10 items-start">
-      <!-- Левая колонка -->
-      <div>
-        <div id="template-image-wrap" class="mb-6 hidden">
-          <img id="template-image" src="" alt="" class="rounded-xl border border-[#e8ddd3] shadow-sm" loading="lazy" decoding="async">
-        </div>
-
-        <p class="mb-4">
-          <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
-            📥 Download CSV Template
-          </a>
-        </p>
-        <button class="btn mt-2" id="start_editor">Start Editor</button>
-      </div>
-
-      <!-- Разделитель -->
-      <hr class="lg:hidden col-span-1 my-6 border-[#e8ddd3]">
-      <div aria-hidden="true" class="hidden lg:block self-stretch w-px bg-[#e8ddd3]"></div>
-
-      <!-- Правая колонка: видео -->
-      <div class="mt-8 lg:mt-12">
-        <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
-        <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
-          <iframe
-            class="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/embed/u04SF3pYrKg"
-            title="How to use Envelo.love"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
+<div class="grid grid-cols-1 lg:[grid-template-columns:1fr_auto_1fr] gap-10 items-start">
+  <!-- Левая колонка -->
+  <div>
+    <div id="template-image-wrap" class="mb-6 hidden">
+      <img id="template-image" src="" alt="" class="rounded-xl border border-[#e8ddd3] shadow-sm" loading="lazy" decoding="async">
     </div>
+
+    <p class="mb-4">
+      <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
+        📥 Download CSV Template
+      </a>
+    </p>
+    <button class="btn mt-2" id="start_editor">Start Editor</button>
   </div>
 
+  <!-- Разделитель -->
+  <hr class="lg:hidden col-span-1 my-6 border-[#e8ddd3]">
+  <div aria-hidden="true" class="hidden lg:block self-stretch w-px bg-[#e8ddd3]"></div>
+
+  <!-- Правая колонка: видео -->
+  <div class="self-start">
+    <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
+    <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        src="https://www.youtube.com/embed/u04SF3pYrKg"
+        title="How to use Envelo.love"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+    
   <div id="pitchprint-holder" style="width:100%; height:1000px; display: none;"></div>
 
   <footer class="bg-white text-center py-6 mt-10 text-sm text-gray-500 border-t">
