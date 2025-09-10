@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Базовые мета: будут перезаписаны скриптом на основе данных шаблона -->
+  <!-- Базовые мета: будут перезаписаны скриптом -->
   <title>Envelope Template | Envelo.love</title>
   <meta name="description" content="Personalize your wedding envelope design and generate print-ready PDFs in minutes.">
   <link rel="canonical" href="https://envelo.love/template.html">
@@ -43,16 +43,16 @@
   <div class="max-w-6xl mx-auto px-4 py-12" id="setup-block">
     <a href="/" class="inline-block text-[#A97155] mb-4 hover:underline">← Back to catalog</a>
 
-    <!-- Заголовок и бейдж на всю ширину -->
-    <h1 id="template-title" class="text-4xl lg:text-5xl font-bold leading-tight mb-2">
+    <!-- Заголовок и бейдж -->
+    <h1 id="template-title" class="text-3xl lg:text-4xl font-bold leading-tight mb-2">
       Customize Your Envelope
     </h1>
     <p id="template-size" class="mb-8">
       <span class="badge" title="Size"></span>
     </p>
 
-    <!-- Две колонки -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+    <!-- Две колонки + разделитель -->
+    <div class="grid grid-cols-1 lg:[grid-template-columns:1fr_auto_1fr] gap-10 items-start">
       <!-- Левая колонка -->
       <div>
         <div id="template-image-wrap" class="mb-6 hidden">
@@ -67,8 +67,12 @@
         <button class="btn mt-2" id="start_editor">Start Editor</button>
       </div>
 
+      <!-- Разделитель -->
+      <hr class="lg:hidden col-span-1 my-6 border-[#e8ddd3]">
+      <div aria-hidden="true" class="hidden lg:block self-stretch w-px bg-[#e8ddd3]"></div>
+
       <!-- Правая колонка: видео -->
-      <div>
+      <div class="mt-8 lg:mt-12">
         <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
         <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
           <iframe
@@ -113,7 +117,7 @@
         if (!currentTemplate) currentTemplate = envelopeTemplates[0];
       }
 
-      // Автоподмена URL на красивый
+      // Автоподмена URL
       if (currentTemplate && idFromQuery && currentTemplate.slug) {
         const prettyUrl = `/templates/${currentTemplate.slug}`;
         if (window.location.pathname !== prettyUrl) {
@@ -121,7 +125,7 @@
         }
       }
 
-      // Инициализация PitchPrint
+      // PitchPrint
       const designId = currentTemplate?.id || idFromQuery || 'defc64a17de41a7e03fbfddfa23e1463bc';
       const ppclient = new PitchPrintClient({
         apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
@@ -142,7 +146,7 @@
         if (editorStarted) setTimeout(() => { ppclient.showApp(); }, 1000);
       });
 
-      // SEO и контент
+      // SEO
       if (currentTemplate) {
         const titleText = currentTemplate.seoTitle || `${currentTemplate.title} | Envelo.love`;
         const descText  = currentTemplate.seoDescription || currentTemplate.description || 'Personalize your wedding envelope and download a print-ready PDF.';
@@ -181,7 +185,7 @@
           }
         }
 
-        // JSON-LD Product
+        // JSON-LD
         const jsonLd = {
           "@context": "https://schema.org/",
           "@type": "Product",
