@@ -43,12 +43,18 @@
   <div class="max-w-6xl mx-auto px-4 py-12" id="setup-block">
     <a href="/" class="inline-block text-[#A97155] mb-4 hover:underline">← Back to catalog</a>
 
-    <div class="flex flex-col lg:flex-row items-start gap-10">
-      <!-- Left Column -->
-      <div class="lg:w-1/2 w-full">
-        <h1 id="template-title" class="text-3xl font-bold mb-2">Customize Your Envelope</h1>
-        <p id="template-size" class="mb-6"><span class="badge" title="Size"></span></p>
+    <!-- Заголовок и бейдж на всю ширину -->
+    <h1 id="template-title" class="text-4xl lg:text-5xl font-bold leading-tight mb-2">
+      Customize Your Envelope
+    </h1>
+    <p id="template-size" class="mb-8">
+      <span class="badge" title="Size"></span>
+    </p>
 
+    <!-- Две колонки -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <!-- Левая колонка -->
+      <div>
         <div id="template-image-wrap" class="mb-6 hidden">
           <img id="template-image" src="" alt="" class="rounded-xl border border-[#e8ddd3] shadow-sm" loading="lazy" decoding="async">
         </div>
@@ -61,8 +67,8 @@
         <button class="btn mt-2" id="start_editor">Start Editor</button>
       </div>
 
-      <!-- Right Column: Video -->
-      <div class="lg:w-1/2 w-full">
+      <!-- Правая колонка: видео -->
+      <div>
         <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
         <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
           <iframe
@@ -94,7 +100,6 @@
   <!-- Логика после загрузки templates.js -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) Определяем шаблон: по /templates/:slug или по ?design=ID
       const path = window.location.pathname;
       const slug = path.startsWith('/templates/')
         ? decodeURIComponent(path.replace('/templates/','').replace(/\/+$/,''))
@@ -108,7 +113,7 @@
         if (!currentTemplate) currentTemplate = envelopeTemplates[0];
       }
 
-      // 2) Авто-подмена URL на красивый, если зашли по ?design=ID
+      // Автоподмена URL на красивый
       if (currentTemplate && idFromQuery && currentTemplate.slug) {
         const prettyUrl = `/templates/${currentTemplate.slug}`;
         if (window.location.pathname !== prettyUrl) {
@@ -116,7 +121,7 @@
         }
       }
 
-      // 3) Инициализация PitchPrint по ID
+      // Инициализация PitchPrint
       const designId = currentTemplate?.id || idFromQuery || 'defc64a17de41a7e03fbfddfa23e1463bc';
       const ppclient = new PitchPrintClient({
         apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
@@ -137,43 +142,35 @@
         if (editorStarted) setTimeout(() => { ppclient.showApp(); }, 1000);
       });
 
-      // 4) SEO и контент на странице из данных шаблона
+      // SEO и контент
       if (currentTemplate) {
         const titleText = currentTemplate.seoTitle || `${currentTemplate.title} | Envelo.love`;
         const descText  = currentTemplate.seoDescription || currentTemplate.description || 'Personalize your wedding envelope and download a print-ready PDF.';
         const imageAbs  = currentTemplate.image ? `https://envelo.love${currentTemplate.image}` : 'https://envelo.love/favicon_envelo.png';
-        const pageUrl   = window.location.href; // уже красивый, если был редирект
+        const pageUrl   = window.location.href;
 
-        // Title / Description
         document.title = titleText;
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', descText);
 
-        // Canonical / OG
         const linkCanonical = document.querySelector('link[rel="canonical"]');
         if (linkCanonical) linkCanonical.setAttribute('href', pageUrl);
 
         const ogTitle = document.querySelector('meta[property="og:title"]');
         if (ogTitle) ogTitle.setAttribute('content', titleText);
-
         const ogDesc = document.querySelector('meta[property="og:description"]');
         if (ogDesc) ogDesc.setAttribute('content', descText);
-
         const ogImage = document.querySelector('meta[property="og:image"]');
         if (ogImage) ogImage.setAttribute('content', imageAbs);
-
         const ogUrl = document.querySelector('meta[property="og:url"]');
         if (ogUrl) ogUrl.setAttribute('content', pageUrl);
 
-        // H1 / Size badge / Preview image
         const h1 = document.getElementById('template-title');
         if (h1) h1.textContent = currentTemplate.title;
-
         const sizeWrap = document.getElementById('template-size');
         if (sizeWrap && sizeWrap.firstElementChild) {
           sizeWrap.firstElementChild.textContent = currentTemplate.sizeText || (currentTemplate.size ? currentTemplate.size.toUpperCase() : '');
         }
-
         if (currentTemplate.image) {
           const imgWrap = document.getElementById('template-image-wrap');
           const img = document.getElementById('template-image');
