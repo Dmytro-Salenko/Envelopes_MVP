@@ -132,7 +132,7 @@
           const name = template.title.includes("Wedding") ? template.title : `${template.title} – Wedding Envelope Template`;
           const sizeLabel = template.size ? `${template.size.toUpperCase()}` : "";
           const card = document.createElement("a");
-          card.href = `template.html?design=${template.id}`;
+          card.href = template.slug ? `/templates/${template.slug}` : `template.html?design=${template.id}`;
           card.className = "block border border-[#e0cfc2] rounded-2xl p-4 shadow-md hover:shadow-lg bg-[#fff7f0] transition";
           card.innerHTML = `
             <h2 class="text-xl font-semibold mb-2">${name}</h2>
