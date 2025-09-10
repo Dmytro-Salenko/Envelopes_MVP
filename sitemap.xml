@@ -1,115 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://envelo.love/</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/privacy.html</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/faq.html</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/thankyou.html</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/thanks.html</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=b6b43f09460ce3d3eca5e3b27e06db60</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=3bc48c9deef234ae9bbfaeb8dc7f4ef2</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=d39c9c520e225dbbe962e3b504f95972</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=969f0ef2e6709d40fc78abe830765c47</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=c811a6d6c0e5dfba458569c2b74f2305</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=dcc7d8911bd398e3e531772137fbcfb3</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=3860f9dc490519af40b1ab9c9cf2a5d3</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=98784b5c6f66cf95fac7390a35b691f9</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=ad88d54395bfbe06799339847c470862</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=aa4376f7af5ce2ba67801f94c6dc1bcc</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://envelo.love/template.html?design=afeed7cbe3789bb3241292182fe82aa4</loc>
-    <lastmod>2025-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://envelo.love/</loc></url>
+  <url><loc>https://envelo.love/faq.html</loc></url>
+  <url><loc>https://envelo.love/how-to-print.html</loc></url>
+  <url><loc>https://envelo.love/privacy.html</loc></url>
+  <url><loc>https://envelo.love/templates/editable-wedding-envelope-template-script-5x7</loc></url>
+  <url><loc>https://envelo.love/templates/minimalist-wedding-envelope-clean-modern-5x7</loc></url>
+  <url><loc>https://envelo.love/templates/printable-wedding-envelope-simple-layout-5x7</loc></url>
+  <url><loc>https://envelo.love/templates/custom-wedding-envelope-address-template-5x7</loc></url>
+  <url><loc>https://envelo.love/templates/script-wedding-envelope-editable-pdf-5x7</loc></url>
+  <url><loc>https://envelo.love/templates/modern-printable-envelope-template-weddings-5x7</loc></url>
+  <url><loc>https://envelo.love/templates/minimalist-wedding-envelope-6x4</loc></url>
+  <url><loc>https://envelo.love/templates/floral-wedding-envelope-template-6x4</loc></url>
+  <url><loc>https://envelo.love/templates/classic-wedding-envelope-layout-6x4</loc></url>
+  <url><loc>https://envelo.love/templates/editable-rsvp-envelope-template-6x4</loc></url>
+  <url><loc>https://envelo.love/templates/simple-wedding-envelope-template-6x4</loc></url>
+  <url><loc>https://envelo.love/templates/modern-wedding-envelope-6x4</loc></url>
 </urlset>
