@@ -3,10 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ — Envelo.love</title>
-  <meta name="description" content="Find answers to common questions about using Envelo.love for designing and printing personalized envelope templates for weddings and events.">
-  <meta name="keywords" content="envelope FAQ, design help, custom envelopes, printing, mail merge, wedding envelopes">
+
+  <title>Wedding Envelope FAQ — Templates, Address Lists & Printing | Envelo.love</title>
+  <meta name="description" content="Answers to common questions about Envelo.love: wedding envelope templates, CSV address lists, printer settings, fonts, sizes (5×7, 6×4), and how to download print-ready PDFs.">
+
+  <link rel="canonical" href="https://envelo.love/faq.html">
+  <meta name="robots" content="index,follow">
   <meta name="author" content="Envelo.love">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Wedding Envelope FAQ — Templates & Printing">
+  <meta property="og:description" content="How Envelo.love helps you design and print personalized wedding envelopes. CSV guide, printer tips, sizes, fonts, and more.">
+  <meta property="og:image" content="https://envelo.love/favicon_envelo.png">
+  <meta property="og:url" content="https://envelo.love/faq.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="icon" type="image/png" href="/favicon_envelo.png">
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,8 +28,12 @@
   <style>
     body { font-family: 'Lora', serif; background-color: #fdf8f4; color: #4b4b4b; }
     h1, h2 { font-family: 'Playfair Display', serif; }
+    .link { color:#A97155; }
+    .link:hover { text-decoration: underline; }
+    .faq-q { scroll-margin-top: 100px; }
   </style>
 
+  <!-- FAQPage structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,7 +44,7 @@
         "name": "What is Envelo.love?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Envelo.love is a simple tool to create beautiful, personalized envelopes — perfect for weddings, showers, and special mailings. Upload your address list and get a print-ready PDF in minutes."
+          "text": "Envelo.love is an online tool to design personalized wedding envelopes. Choose a template, upload a CSV address list, and download a print-ready PDF for home or pro printing."
         }
       },
       {
@@ -34,7 +52,23 @@
         "name": "Do I need to install anything?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Everything runs in your browser. Just pick a template, upload a CSV file with addresses, and you're ready to go."
+          "text": "No installation required. Everything runs in your browser on desktop. Just open a template, upload your addresses, and export the PDF."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which sizes are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We currently support 5×7 in (A7) and 6×4 in (A6) envelopes. You can filter templates by size and each PDF is generated at the correct dimensions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I prepare my address list (CSV)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use our CSV template with columns like Name, Street, City, State, ZIP. Avoid merged cells; one row = one envelope. You can download the sample CSV directly from the FAQ page."
         }
       },
       {
@@ -42,15 +76,7 @@
         "name": "Is it compatible with home printers?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. You can download a high-quality PDF and print it at home or take it to a print shop."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I prepare my address list?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Download our CSV template and fill in your addresses. Make sure each row has a name, street, city, state, and ZIP code."
+          "text": "Yes. Export a high-quality PDF, set 100% scale (no 'fit to page') and choose the correct paper size in your driver. For alignment issues, print a test page first."
         }
       },
       {
@@ -58,23 +84,31 @@
         "name": "Can I use custom fonts or colors?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Our editor allows you to change fonts, colors, and layout elements. You have full creative control over the final design."
+          "text": "Yes. The editor lets you change fonts, sizes, and colors. Keep text at least 6–8 pt for readability and use dark inks for best print results."
         }
       },
       {
         "@type": "Question",
-        "name": "Is this free?",
+        "name": "Is Envelo.love free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We’re currently in beta. All features are free to use while we test and improve the experience."
+          "text": "We’re in beta, so features are currently free to use."
         }
       },
       {
         "@type": "Question",
-        "name": "Who built this?",
+        "name": "Where can I find printing instructions?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We’re a small indie project built with care — to help people create meaningful printed moments with ease."
+          "text": "See our step-by-step guide 'How to Print Envelopes' with screenshots and tips for common printers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who built Envelo.love?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We’re a small indie project focused on simple, elegant stationery tools for weddings and events."
         }
       }
     ]
@@ -86,49 +120,82 @@
     <a href="/" class="text-3xl sm:text-4xl font-bold text-[#A97155] tracking-wide">Envelo.love</a>
   </header>
 
-  <main class="max-w-3xl mx-auto py-16 px-6">
-    <h1 class="text-4xl font-bold text-center mb-10">Frequently Asked Questions</h1>
+  <main class="max-w-3xl mx-auto py-14 px-6">
+    <h1 class="text-3xl lg:text-4xl font-bold text-center mb-6">Wedding Envelope FAQ</h1>
+    <p class="text-center text-lg text-gray-700 mb-10">
+      Quick answers about our <a class="link" href="/">wedding envelope templates</a>,
+      CSV address lists, and <a class="link" href="/how-to-print.html">how to print envelopes</a>.
+    </p>
+
+    <!-- Mini table of contents -->
+    <nav aria-label="FAQ topics" class="bg-white/60 border border-[#e8ddd3] rounded-xl p-4 mb-8">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[#A97155]">
+        <li><a class="link" href="#q-what">What is Envelo.love?</a></li>
+        <li><a class="link" href="#q-install">Do I need to install anything?</a></li>
+        <li><a class="link" href="#q-sizes">Which sizes are supported?</a></li>
+        <li><a class="link" href="#q-csv">How to prepare the CSV?</a></li>
+        <li><a class="link" href="#q-printers">Home printer compatibility</a></li>
+        <li><a class="link" href="#q-fonts">Fonts & colors</a></li>
+        <li><a class="link" href="#q-free">Is it free?</a></li>
+        <li><a class="link" href="#q-guide">Printing instructions</a></li>
+        <li><a class="link" href="#q-who">Who built this?</a></li>
+      </ul>
+    </nav>
+
     <div class="space-y-8 text-lg">
-      <div>
-        <h2 class="text-xl font-semibold mb-2">1. What is Envelo.love?</h2>
-        <p>Envelo.love is a simple tool to create beautiful, personalized envelopes — perfect for weddings, showers, and special mailings. Upload your address list and get a print-ready PDF in minutes.</p>
-      </div>
+      <section id="q-what" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">1) What is Envelo.love?</h2>
+        <p>Envelo.love is a simple online tool to create elegant, personalized <strong>wedding envelopes</strong>. Pick a template, upload your address list, and download a <strong>print-ready PDF</strong> for home or professional printing.</p>
+      </section>
 
-      <div>
-        <h2 class="text-xl font-semibold mb-2">2. Do I need to install anything?</h2>
-        <p>No. Everything runs in your browser. Just pick a template, upload a CSV file with addresses, and you're ready to go.</p>
-      </div>
+      <section id="q-install" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">2) Do I need to install anything?</h2>
+        <p>No installs. Everything runs in your browser. Just open a template, upload a CSV file with addresses, and export your PDF.</p>
+      </section>
 
-      <div>
-        <h2 class="text-xl font-semibold mb-2">3. Is it compatible with home printers?</h2>
-        <p>Yes. You can download a high-quality PDF and print it at home or take it to a print shop.</p>
-      </div>
+      <section id="q-sizes" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">3) Which sizes are supported?</h2>
+        <p>We currently support <strong>5×7 in (A7)</strong> and <strong>6×4 in (A6)</strong>. Use the size filter in the <a class="link" href="/">template catalog</a> to find the right design.</p>
+      </section>
 
-      <div>
-        <h2 class="text-xl font-semibold mb-2">4. How do I prepare my address list?</h2>
-        <p>Download our CSV template and fill in your addresses. Make sure each row has a name, street, city, state, and ZIP code.</p>
-      </div>
+      <section id="q-csv" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">4) How do I prepare my address list (CSV)?</h2>
+        <p>Download our sample and keep one row per envelope. Recommended columns: <em>Name</em>, <em>Street</em>, <em>City</em>, <em>State</em>, <em>ZIP</em>. Avoid merged cells and extra line breaks.</p>
+        <p class="mt-2">
+          <a class="inline-block bg-[#A97155] text-white px-4 py-2 rounded-lg link" target="_blank" href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing">📥 Download CSV Template</a>
+        </p>
+      </section>
 
-      <div>
-        <h2 class="text-xl font-semibold mb-2">5. Can I use custom fonts or colors?</h2>
-        <p>Yes! Our editor allows you to change fonts, colors, and layout elements. You have full creative control over the final design.</p>
-      </div>
+      <section id="q-printers" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">5) Is it compatible with home printers?</h2>
+        <p>Yes. Export the PDF, set <strong>Scale = 100%</strong> (no “Fit to page”), choose the correct paper size, and print a test page. If alignment is off, try “center” alignment in your printer driver and disable automatic scaling.</p>
+      </section>
 
-      <div>
-        <h2 class="text-xl font-semibold mb-2">6. Is this free?</h2>
-        <p>We’re currently in beta. All features are free to use while we test and improve the experience.</p>
-      </div>
+      <section id="q-fonts" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">6) Can I use custom fonts or colors?</h2>
+        <p>Yes. You can change fonts, size, and colors in the editor. For best readability use at least 6–8 pt, and prefer high-contrast colors (dark ink on light paper).</p>
+      </section>
 
-      <div>
-        <h2 class="text-xl font-semibold mb-2">7. Who built this?</h2>
-        <p>We’re a small indie project built with care — to help people create meaningful printed moments with ease.</p>
-      </div>
+      <section id="q-free" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">7) Is this free?</h2>
+        <p>We’re currently in beta — features are free while we improve the experience.</p>
+      </section>
+
+      <section id="q-guide" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">8) Where can I find printing instructions?</h2>
+        <p>See our detailed guide: <a class="link" href="/how-to-print.html">How to Print Envelopes</a>.</p>
+      </section>
+
+      <section id="q-who" class="faq-q">
+        <h2 class="text-xl font-semibold mb-2">9) Who built this?</h2>
+        <p>We’re a small indie project, focused on simple tools for beautiful stationery and <a class="link" href="/">personalized wedding envelopes</a>.</p>
+      </section>
     </div>
   </main>
 
   <footer class="bg-white text-center py-6 text-sm text-gray-500 border-t">
-    <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="text-[#A97155] hover:underline">hello@envelo.love</a></p>
-    <p class="mt-1">&copy; 2025 Envelo.love — <a href="/faq.html" class="text-[#A97155] hover:underline">FAQ</a></p>
+    <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="link">hello@envelo.love</a></p>
+    <p class="mt-1">&copy; 2025 Envelo.love — <a href="/faq.html" class="link">FAQ</a></p>
   </footer>
 </body>
 </html>
