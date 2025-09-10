@@ -1,3 +1,10 @@
 User-agent: *
+# Блокируем мусорные URL с параметрами
+Disallow: /*?q=
+Disallow: /*?ref=
+
+# Всё остальное можно индексировать
 Allow: /
+
+# Карта сайта
 Sitemap: https://envelo.love/sitemap.xml
