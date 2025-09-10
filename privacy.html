@@ -2,64 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Envelo.love</title>
-  <meta name="description" content="Learn how Envelo.love handles your personal data and privacy.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy — Data, Cookies & Third-Party Services | Envelo.love</title>
+  <meta name="description" content="Learn how Envelo.love handles personal data, cookies, and third-party tools (PitchPrint, session analytics). Read about data retention, your GDPR rights, and how to contact us.">
+
+  <link rel="canonical" href="https://envelo.love/privacy.html">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Envelo.love">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Privacy Policy — Envelo.love">
+  <meta property="og:description" content="How we handle personal data, cookies, and third-party services. GDPR rights and contact details.">
+  <meta property="og:image" content="https://envelo.love/favicon_envelo.png">
+  <meta property="og:url" content="https://envelo.love/privacy.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="icon" type="image/png" href="/favicon_envelo.png">
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body { font-family: 'Lora', serif; background-color: #fdf8f4; color: #4b4b4b; }
-    h1, h2 { font-family: 'Playfair Display', serif; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    .link { color:#A97155; }
+    .link:hover { text-decoration: underline; }
+    .card { background:#fff; border:1px solid #e8ddd3; border-radius:12px; padding:16px 18px; }
   </style>
+
+  <!-- JSON-LD: Organization + WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Envelo.love",
+        "url": "https://envelo.love",
+        "logo": "https://envelo.love/favicon_envelo.png",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "hello@envelo.love"
+        }]
+      },
+      {
+        "@type": "WebPage",
+        "name": "Privacy Policy — Envelo.love",
+        "url": "https://envelo.love/privacy.html",
+        "isPartOf": { "@id": "https://envelo.love" },
+        "about": "Privacy policy for Envelo.love website and tools.",
+        "dateModified": "2025-09-10"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Header with link back to home -->
   <header class="bg-white shadow p-6 flex justify-center items-center">
     <a href="/" class="text-3xl sm:text-4xl font-bold text-[#A97155] tracking-wide">Envelo.love</a>
   </header>
 
   <main class="max-w-3xl mx-auto py-16 px-6">
-    <h1 class="text-4xl font-bold text-center mb-10">Privacy Policy</h1>
+    <h1 class="text-3xl lg:text-4xl font-bold text-center mb-8">Privacy Policy</h1>
+    <p class="text-center text-gray-700 mb-10">
+      This page explains how Envelo.love handles personal data, cookies, and third-party services.
+      For general questions see our <a href="/faq.html" class="link">FAQ</a> or return to the <a href="/" class="link">template catalog</a>.
+    </p>
 
     <div class="space-y-8 text-lg">
-      <p>
-        Envelo.love does not collect, store, or process any personal data from users directly.
-        When you upload a CSV address file or customize a design, all data is processed securely by a third-party tool (PitchPrint) during your session.
-        We do not store or retain any uploaded content on our servers.
-      </p>
+      <section class="card">
+        <h2 class="text-xl font-semibold mb-2">Summary</h2>
+        <p class="mb-2">
+          Envelo.love helps you design personalized envelopes. We collect as little data as possible.
+          Design editing and CSV processing are provided by a third-party editor (PitchPrint) during your session.
+        </p>
+        <p class="text-sm text-gray-600">Last updated: <time datetime="2025-09-10">September 10, 2025</time></p>
+      </section>
 
-      <p>
-        We use <strong>PitchPrint</strong> to enable design customization. Your session data (such as uploaded names and addresses) is temporarily handled by PitchPrint and subject to their own privacy policies.
-        You can read more at: 
-        <a href="https://pitchprint.com/privacy" class="text-[#A97155] underline" target="_blank">https://pitchprint.com/privacy</a>.
-      </p>
+      <section>
+        <h2 class="text-xl font-semibold mb-2">Data We Process</h2>
+        <ul class="list-disc ml-6">
+          <li><strong>Design/session data</strong> you actively provide in the editor (names, addresses, layout choices) when creating envelopes.</li>
+          <li><strong>Technical data</strong> (e.g., browser type, device, basic usage events) may be collected to improve usability via session analytics.</li>
+          <li>We do <strong>not</strong> sell personal data and do <strong>not</strong> use it for advertising targeting.</li>
+        </ul>
+      </section>
 
-      <p>
-        Envelo.love does not use your data for marketing, analytics, or tracking. We do not share your data with advertisers or third parties.
-      </p>
+      <section>
+        <h2 class="text-xl font-semibold mb-2">PitchPrint (Design Editor)</h2>
+        <p>
+          We use <strong>PitchPrint</strong> to power the online editor. Your uploaded CSV and design changes are handled during your session by PitchPrint and are subject to their privacy practices.
+          For details, see their policy: <a href="https://pitchprint.com/privacy" target="_blank" rel="noopener" class="link">pitchprint.com/privacy</a>.
+          If you need help with a data request related to PitchPrint usage, contact <a href="mailto:hello@envelo.love" class="link">hello@envelo.love</a>.
+        </p>
+      </section>
 
-      <h2 class="text-xl font-semibold mt-8 mb-2">Cookies & LocalStorage</h2>
-      <p>
-        PitchPrint may use local storage and cookies to remember session preferences, uploaded images, or design changes.
-        These are essential for the design editor to function properly. By using this site, you consent to this use.
-      </p>
+      <section>
+        <h2 class="text-xl font-semibold mb-2">Session Analytics</h2>
+        <p class="mb-2">
+          To understand how people use our site and fix UX issues, we may use session analytics tools such as
+          <strong>Microsoft Clarity</strong> and <strong>Seez Analytics</strong>. These tools can record anonymized clicks, mouse movements, and basic technical parameters. We use them only to improve usability — not for advertising.
+        </p>
+        <ul class="list-disc ml-6">
+          <li>You can limit tracking via browser settings (block third-party cookies, enable “Do Not Track”) or with content-blocking extensions.</li>
+          <li>We ask providers to retain analytics data for a limited period and delete it when no longer needed.</li>
+        </ul>
+      </section>
 
-      <h2 class="text-xl font-semibold mt-8 mb-2">Your Rights (GDPR)</h2>
-      <p>
-        If you are a resident of the European Economic Area (EEA), you have the right to access, rectify, or delete any personal data held by third parties.
-        If you have concerns, you may contact us at <a href="mailto:hello@envelo.love" class="text-[#A97155] underline">hello@envelo.love</a>, and we will assist you in exercising your rights.
-      </p>
+      <section>
+        <h2 class="text-xl font-semibold mb-2">Cookies & Local Storage</h2>
+        <p>
+          PitchPrint and analytics may use cookies or localStorage for session functionality (e.g., remembering layout, settings, or editor state).
+          These files help reliably save and restore your editing process.
+        </p>
+      </section>
 
-      <h2 class="text-xl font-semibold mt-8 mb-2">Questions?</h2>
-      <p>
-        If you have any questions about this policy, feel free to reach out: <a href="mailto:hello@envelo.love" class="text-[#A97155] underline">hello@envelo.love</a>.
-      </p>
+      <section>
+        <h2 class="text-xl font-semibold mb-2">Data Retention</h2>
+        <p>
+          We aim to keep personal data only as long as needed to operate the service and troubleshoot issues. Editor session data and analytics records are deleted after a reasonable retention period.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">GDPR / Your Rights</h2>
+        <p class="mb-2">
+          If you are in the EEA, you may request access, rectification, or erasure of personal data, as well as restriction or objection to processing.
+          Email us at <a href="mailto:hello@envelo.love" class="link">hello@envelo.love</a> — we will help process your request, including coordination with providers (e.g., PitchPrint).
+        </p>
+        <ul class="list-disc ml-6">
+          <li>Right of access (copy of your data)</li>
+          <li>Right to rectification/erasure</li>
+          <li>Right to restrict/object to processing</li>
+          <li>Data portability (where applicable)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">Children’s Privacy</h2>
+        <p>
+          Our service is not intended for children under 13. We do not knowingly collect data from children. If you believe a child provided data, contact us to remove it.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">Changes to This Policy</h2>
+        <p>
+          We may update this policy from time to time. Material changes will be reflected by the “Last updated” date above. By continuing to use the site, you agree to the updated terms.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-2">Contact</h2>
+        <p>
+          For privacy questions, email <a href="mailto:hello@envelo.love" class="link">hello@envelo.love</a>.
+          See also our <a href="/faq.html" class="link">FAQ</a> and <a href="/how-to-print.html" class="link">How to Print Envelopes</a>.
+        </p>
+      </section>
     </div>
   </main>
 
   <footer class="bg-white text-center py-6 text-sm text-gray-500 border-t">
-    <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="text-[#A97155] hover:underline">hello@envelo.love</a></p>
-    <p class="mt-1">&copy; 2025 Envelo.love — <a href="/faq.html" class="text-[#A97155] hover:underline">FAQ</a> | <a href="/privacy.html" class="text-[#A97155] hover:underline">Privacy Policy</a></p>
+    <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="link">hello@envelo.love</a></p>
+    <p class="mt-1">&copy; 2025 Envelo.love — <a href="/faq.html" class="link">FAQ</a> · <a href="/privacy.html" class="link">Privacy Policy</a></p>
   </footer>
 </body>
 </html>
