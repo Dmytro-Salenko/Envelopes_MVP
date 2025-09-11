@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Базовые мета: будут перезаписаны скриптом -->
+  <!-- Base meta: will be overwritten by JS from the selected template -->
   <title>Envelope Template | Envelo.love</title>
   <meta name="description" content="Personalize your wedding envelope design and generate print-ready PDFs in minutes.">
   <link rel="canonical" href="https://envelo.love/template.html">
@@ -12,6 +12,7 @@
   <meta name="author" content="Envelo.love">
   <meta name="google-site-verification" content="mGVjSzmcquqeMHCNbFsxFT8ZbSpM4w3EyZrtbC7wqGU" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="product">
   <meta property="og:title" content="Customize Your Envelope — Envelo.love">
   <meta property="og:description" content="Create beautiful wedding envelopes online. Upload your address list and generate print-ready designs for weddings and events.">
@@ -20,9 +21,8 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff">
-  <link rel="icon" type="image/png" href="/favicon_envelo.png">
 
-  <!-- Fonts -->
+  <link rel="icon" type="image/png" href="/favicon_envelo.png">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <!-- Scripts -->
@@ -34,81 +34,98 @@
   <style>
     body { font-family: 'Lora', serif; background-color: #fdf8f4; color: #4b4b4b; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
-    .btn { padding: 12px 20px; background: #A97155; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    .btn { padding: 12px 20px; background: #A97155; color: white; border: none; border-radius: 8px; cursor: pointer; }
     .btn:hover { background: #8A5B42; }
     .badge { display: inline-block; background: #f2eae4; color: #A97155; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .card { background:#fff; border:1px solid #e8ddd3; border-radius:16px; }
+    .divider { background:#e8ddd3; }
+    a.link { color:#A97155; }
+    a.link:hover { text-decoration: underline; }
   </style>
 </head>
 <body class="bg-[#fdf8f4] text-[#4b4b4b]">
   <div class="max-w-6xl mx-auto px-4 py-12" id="setup-block">
     <a href="/" class="inline-block text-[#A97155] mb-4 hover:underline">← Back to catalog</a>
 
-    <!-- Заголовок и бейдж -->
-    <h1 id="template-title" class="text-3xl lg:text-4xl font-bold leading-tight mb-2">
-      Customize Your Envelope
-    </h1>
+    <!-- Title and size badge -->
+    <h1 id="template-title" class="text-3xl lg:text-4xl font-bold leading-tight mb-2">Customize Your Envelope</h1>
     <p id="template-size" class="mb-8">
       <span class="badge" title="Size"></span>
     </p>
 
-    <!-- Две колонки + разделитель -->
-<div class="grid grid-cols-1 lg:[grid-template-columns:1fr_auto_1fr] gap-10 items-start">
-  <!-- Левая колонка -->
-  <div>
-    <div id="template-image-wrap" class="mb-6 hidden">
-      <img id="template-image" src="" alt="" class="rounded-xl border border-[#e8ddd3] shadow-sm" loading="lazy" decoding="async">
+    <!-- Two columns + adaptive divider -->
+    <div class="grid grid-cols-1 lg:[grid-template-columns:1fr_auto_1fr] gap-10 items-start">
+      <!-- Left column -->
+      <div>
+        <div id="template-image-wrap" class="mb-6 hidden">
+          <img id="template-image" src="" alt="" class="rounded-xl border border-[#e8ddd3] shadow-sm" loading="lazy" decoding="async">
+        </div>
+
+        <p class="mb-4">
+          <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank" rel="noopener">
+            📥 Download CSV Template
+          </a>
+        </p>
+        <button class="btn mt-2" id="start_editor">Start Editor</button>
+      </div>
+
+      <!-- Divider -->
+      <hr class="lg:hidden col-span-1 my-6 border-[#e8ddd3]">
+      <div aria-hidden="true" class="hidden lg:block self-stretch w-px divider"></div>
+
+      <!-- Right column: video -->
+      <div class="self-start">
+        <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
+        <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
+          <iframe
+            class="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/u04SF3pYrKg"
+            title="How to use Envelo.love"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </div>
 
-    <p class="mb-4">
-      <a href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing" class="btn" target="_blank">
-        📥 Download CSV Template
-      </a>
-    </p>
-    <button class="btn mt-2" id="start_editor">Start Editor</button>
+    <!-- Quick Steps block -->
+    <section class="card mt-10 p-6">
+      <h2 class="text-2xl font-semibold mb-3">Quick Steps: Create a Print-Ready PDF</h2>
+      <ol class="list-decimal pl-6 space-y-2 text-lg">
+        <li><strong>Download the CSV</strong> and add your guest addresses (one row per envelope). <a class="link" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1K0ZmsGyMDNHbkHdtOQkFBcIM92MAOhXY?usp=sharing">Get the sample CSV</a>.</li>
+        <li><strong>Start the editor</strong> and open this template. Adjust fonts, sizes, spacing and layout.</li>
+        <li><strong>Save your project</strong> — the editor will generate a <em>high-resolution, print-ready PDF</em> for all addresses.</li>
+        <li><strong>Print</strong> on A7 (5×7) or A6 (6×4): set <em>Scale = 100%</em>, correct paper size, and run one test page first. Need details? See <a class="link" href="/how-to-print.html">How to Print Envelopes</a>.</li>
+      </ol>
+    </section>
   </div>
 
-  <!-- Разделитель -->
-  <hr class="lg:hidden col-span-1 my-6 border-[#e8ddd3]">
-  <div aria-hidden="true" class="hidden lg:block self-stretch w-px bg-[#e8ddd3]"></div>
-
-  <!-- Правая колонка: видео -->
-  <div class="self-start">
-    <h2 class="text-2xl font-semibold mb-4">Watch How It Works</h2>
-    <div class="relative w-full rounded-xl overflow-hidden shadow-lg border border-[#e8ddd3]" style="padding-top: 56.25%;">
-      <iframe
-        class="absolute top-0 left-0 w-full h-full"
-        src="https://www.youtube.com/embed/u04SF3pYrKg"
-        title="How to use Envelo.love"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-  </div>
-</div>
-    
+  <!-- PitchPrint holder -->
   <div id="pitchprint-holder" style="width:100%; height:1000px; display: none;"></div>
 
   <footer class="bg-white text-center py-6 mt-10 text-sm text-gray-500 border-t">
-    <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="text-[#A97155] hover:underline">hello@envelo.love</a></p>
+    <p>Made with ❤️ by Envelo.love — <a href="mailto:hello@envelo.love" class="link">hello@envelo.love</a></p>
     <p class="mt-1">
       &copy; 2025 Envelo.love —
-      <a href="#" class="text-[#A97155] hover:underline">Visit us on Etsy</a> ·
-      <a href="/faq.html" class="text-[#A97155] hover:underline">FAQ</a> ·
-      <a href="/how-to-print.html" class="text-[#A97155] hover:underline">How to Print Envelopes</a> ·
-      <a href="/privacy.html" class="text-[#A97155] hover:underline">Privacy Policy</a>
+      <a href="#" class="link">Visit us on Etsy</a> ·
+      <a href="/faq.html" class="link">FAQ</a> ·
+      <a href="/how-to-print.html" class="link">How to Print Envelopes</a> ·
+      <a href="/privacy.html" class="link">Privacy Policy</a>
     </p>
   </footer>
 
-  <!-- Логика после загрузки templates.js -->
+  <!-- Page logic (runs after templates.js is loaded) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Determine slug or query param
       const path = window.location.pathname;
       const slug = path.startsWith('/templates/')
         ? decodeURIComponent(path.replace('/templates/','').replace(/\/+$/,''))
         : null;
       const idFromQuery = new URLSearchParams(window.location.search).get('design');
 
+      // Resolve current template
       let currentTemplate = null;
       if (typeof envelopeTemplates !== 'undefined' && Array.isArray(envelopeTemplates)) {
         if (slug) currentTemplate = envelopeTemplates.find(t => t.slug === slug);
@@ -116,7 +133,7 @@
         if (!currentTemplate) currentTemplate = envelopeTemplates[0];
       }
 
-      // Автоподмена URL
+      // Pretty URL replacement if opened with ?design=
       if (currentTemplate && idFromQuery && currentTemplate.slug) {
         const prettyUrl = `/templates/${currentTemplate.slug}`;
         if (window.location.pathname !== prettyUrl) {
@@ -124,7 +141,7 @@
         }
       }
 
-      // PitchPrint
+      // Init PitchPrint
       const designId = currentTemplate?.id || idFromQuery || 'defc64a17de41a7e03fbfddfa23e1463bc';
       const ppclient = new PitchPrintClient({
         apiKey: 'key_30f5980013fbc8f44c3bf75a89ece068',
@@ -145,7 +162,7 @@
         if (editorStarted) setTimeout(() => { ppclient.showApp(); }, 1000);
       });
 
-      // SEO
+      // SEO & content population
       if (currentTemplate) {
         const titleText = currentTemplate.seoTitle || `${currentTemplate.title} | Envelo.love`;
         const descText  = currentTemplate.seoDescription || currentTemplate.description || 'Personalize your wedding envelope and download a print-ready PDF.';
@@ -155,7 +172,6 @@
         document.title = titleText;
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', descText);
-
         const linkCanonical = document.querySelector('link[rel="canonical"]');
         if (linkCanonical) linkCanonical.setAttribute('href', pageUrl);
 
@@ -184,7 +200,7 @@
           }
         }
 
-        // JSON-LD
+        // JSON-LD Product
         const jsonLd = {
           "@context": "https://schema.org/",
           "@type": "Product",
