@@ -78,6 +78,21 @@ const envelopeTemplates = [
     seoTitle: "Modern Printable Wedding Envelope (5×7) — Minimal Style | Envelo.love",
     seoDescription: "Modern 5×7 wedding envelope template. Customize names & addresses and download a professional, print-ready PDF in seconds."
   },
+  // NEW Floral A7 (5×7)
+  {
+    id: "619d3339775e6e17b91a459121ab53ac",
+    title: "Floral Wedding Envelope Template — 5×7 A7 (Editable PDF)",
+    image: "/images/floral-rose-5x7.jpg",
+    description: "Romantic floral wedding envelope template for A7 (5×7 in). Fully editable online — upload your CSV guest list and export a print-ready PDF.",
+    size: "7x5",
+    sizeText: "5×7 in",
+    tag: "Floral",
+    tags: ["Floral"],
+    slug: "floral-wedding-envelope-template-5x7-rose",
+    seoTitle: "Floral Wedding Envelope Template (A7 5×7) — Editable & Printable | Envelo.love",
+    seoDescription: "Create beautiful floral wedding envelopes: edit online, mail-merge your CSV addresses, and download a high-resolution, print-ready PDF. Perfect for invitations.",
+    priceUSD: 9.99
+  },
 
   // 6×4 inch templates (A6)
   {
@@ -157,6 +172,21 @@ const envelopeTemplates = [
     slug: "modern-wedding-envelope-6x4",
     seoTitle: "Modern Wedding Envelope (6×4) — Contemporary Layout | Envelo.love",
     seoDescription: "Contemporary 6×4 wedding envelope template. Customize names & addresses and download an instantly print-ready PDF."
+  },
+  // NEW Floral A6 (6×4)
+  {
+    id: "304396c4626a707b6d4815e392a575d5",
+    title: "Floral Wedding Envelope Template — 6×4 A6 (Editable PDF)",
+    image: "/images/floral-lilac-6x4.jpg",
+    description: "Elegant floral wedding envelope template for A6 (6×4 in). Customize fonts, colors, and layout online — upload your guest list and download a print-ready PDF.",
+    size: "6x4",
+    sizeText: "6×4 in",
+    tag: "Floral",
+    tags: ["Floral"],
+    slug: "floral-wedding-envelope-template-6x4-lilac",
+    seoTitle: "Floral Wedding Envelope Template (A6 6×4) — Editable & Printable | Envelo.love",
+    seoDescription: "Design elegant floral wedding envelopes in A6 (6×4). Edit online, merge addresses from CSV, and export a professional print-ready PDF in minutes.",
+    priceUSD: 8.99
   }
 ];
 
