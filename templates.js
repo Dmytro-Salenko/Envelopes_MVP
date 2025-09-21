@@ -78,6 +78,7 @@ const envelopeTemplates = [
     seoTitle: "Modern Printable Wedding Envelope (5×7) — Minimal Style | Envelo.love",
     seoDescription: "Modern 5×7 wedding envelope template. Customize names & addresses and download a professional, print-ready PDF in seconds."
   },
+
   // NEW Floral A7 (5×7)
   {
     id: "619d3339775e6e17b91a459121ab53ac",
@@ -91,6 +92,20 @@ const envelopeTemplates = [
     slug: "floral-wedding-envelope-template-5x7-rose",
     seoTitle: "Floral Wedding Envelope Template (A7 5×7) — Editable & Printable | Envelo.love",
     seoDescription: "Create beautiful floral wedding envelopes: edit online, mail-merge your CSV addresses, and download a high-resolution, print-ready PDF. Perfect for invitations.",
+    priceUSD: 9.99
+  },
+  {
+    id: "dd964e1ecf21503167d1c4da0e1082e9",
+    title: "Floral Wedding Envelope — Peony Style (5×7 A7, Editable PDF)",
+    image: "/images/floral-peony-5x7.jpg",
+    description: "Soft peony floral envelope template for A7 (5×7 in). Customize typography and layout online, merge CSV addresses, and export a print-ready PDF.",
+    size: "7x5",
+    sizeText: "5×7 in",
+    tag: "Floral",
+    tags: ["Floral"],
+    slug: "floral-wedding-envelope-template-5x7-peony",
+    seoTitle: "Floral Wedding Envelope (A7 5×7) — Peony, Editable & Printable | Envelo.love",
+    seoDescription: "Design romantic peony-floral wedding envelopes in A7 (5×7). Edit online, mail-merge your guest list from CSV, and download a professional print-ready PDF.",
     priceUSD: 9.99
   },
 
@@ -173,6 +188,7 @@ const envelopeTemplates = [
     seoTitle: "Modern Wedding Envelope (6×4) — Contemporary Layout | Envelo.love",
     seoDescription: "Contemporary 6×4 wedding envelope template. Customize names & addresses and download an instantly print-ready PDF."
   },
+
   // NEW Floral A6 (6×4)
   {
     id: "304396c4626a707b6d4815e392a575d5",
@@ -187,10 +203,24 @@ const envelopeTemplates = [
     seoTitle: "Floral Wedding Envelope Template (A6 6×4) — Editable & Printable | Envelo.love",
     seoDescription: "Design elegant floral wedding envelopes in A6 (6×4). Edit online, merge addresses from CSV, and export a professional print-ready PDF in minutes.",
     priceUSD: 8.99
+  },
+  {
+    id: "8e2c2cd90717d0dab6fb92c309f3bfb4",
+    title: "Floral Wedding Envelope — Eucalyptus Style (6×4 A6, Editable PDF)",
+    image: "/images/floral-eucalyptus-6x4.jpg",
+    description: "Fresh eucalyptus floral envelope template for A6 (6×4 in). Personalize typography, merge CSV addresses online, and download a print-ready PDF.",
+    size: "6x4",
+    sizeText: "6×4 in",
+    tag: "Floral",
+    tags: ["Floral"],
+    slug: "floral-wedding-envelope-template-6x4-eucalyptus",
+    seoTitle: "Floral Wedding Envelope (A6 6×4) — Eucalyptus, Editable & Printable | Envelo.love",
+    seoDescription: "Create elegant eucalyptus-floral wedding envelopes in A6 (6×4). Edit online, mail-merge CSV guest addresses, and export a high-resolution print-ready PDF.",
+    priceUSD: 8.99
   }
 ];
 
-// Дополнительно (опционально): дефолтная цена (бесплатно, для JSON-LD)
+// Default price for JSON-LD if not set
 envelopeTemplates.forEach(t => {
   t.priceUSD = t.priceUSD ?? 0;
 });
