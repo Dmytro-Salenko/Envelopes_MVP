@@ -109,6 +109,22 @@ const envelopeTemplates = [
     priceUSD: 9.99
   },
 
+  // NEW All-Occasions A7 (5×7)
+  {
+    id: "a556880a80ff29ff826e87ce8697a13c",
+    title: "All-Occasions Envelope Template — For Any Occasion (5×7)",
+    image: "/images/for-any-occasion-5x7.jpg",
+    description: "Versatile 5×7 envelope template designed for any occasion — weddings, birthdays, baby showers, holidays, and business mailings. Edit names and addresses online, import a CSV guest list for fast mail merge, and download a crisp, print-ready PDF compatible with home or professional printing.",
+    size: "7x5",
+    sizeText: "5×7 in",
+    tag: "All-Occasions",
+    tags: ["All-Occasions", "Versatile", "Popular"],
+    slug: "all-occasions-envelope-template-for-any-occasion-5x7",
+    seoTitle: "All-Occasions Envelope (5×7) — For Any Occasion | Envelo.love",
+    seoDescription: "A flexible 5×7 envelope template for any occasion. Personalize addresses, mail-merge a CSV guest list, and export a high-resolution, print-ready PDF in minutes.",
+    priceUSD: 8.99
+  },
+
   // 6×4 inch templates (A6)
   {
     id: "dcc7d8911bd398e3e531772137fbcfb3",
@@ -201,26 +217,4 @@ const envelopeTemplates = [
     tags: ["Floral"],
     slug: "floral-wedding-envelope-template-6x4-lilac",
     seoTitle: "Floral Wedding Envelope Template (A6 6×4) — Editable & Printable | Envelo.love",
-    seoDescription: "Design elegant floral wedding envelopes in A6 (6×4). Edit online, merge addresses from CSV, and export a professional print-ready PDF in minutes.",
-    priceUSD: 8.99
-  },
-  {
-    id: "8e2c2cd90717d0dab6fb92c309f3bfb4",
-    title: "Floral Wedding Envelope — Eucalyptus Style (6×4 A6, Editable PDF)",
-    image: "/images/floral-eucalyptus-6x4.jpg",
-    description: "Fresh eucalyptus floral envelope template for A6 (6×4 in). Personalize typography, merge CSV addresses online, and download a print-ready PDF.",
-    size: "6x4",
-    sizeText: "6×4 in",
-    tag: "Floral",
-    tags: ["Floral"],
-    slug: "floral-wedding-envelope-template-6x4-eucalyptus",
-    seoTitle: "Floral Wedding Envelope (A6 6×4) — Eucalyptus, Editable & Printable | Envelo.love",
-    seoDescription: "Create elegant eucalyptus-floral wedding envelopes in A6 (6×4). Edit online, mail-merge CSV guest addresses, and export a high-resolution print-ready PDF.",
-    priceUSD: 8.99
-  }
-];
-
-// Default price for JSON-LD if not set
-envelopeTemplates.forEach(t => {
-  t.priceUSD = t.priceUSD ?? 0;
-});
+    seoDescription: "Design elegant floral wedding envelopes in A6 (6×4). Edit online, merge addresses from CSV, and
