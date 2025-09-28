@@ -47,11 +47,12 @@
   <div class="max-w-6xl mx-auto px-4 py-12" id="setup-block">
     <a href="/" class="inline-block text-[#A97155] mb-4 hover:underline">← Back to catalog</a>
 
-    <!-- Title and size badge -->
+    <!-- Title and badges -->
     <h1 id="template-title" class="text-3xl lg:text-4xl font-bold leading-tight mb-2">Customize Your Envelope</h1>
-    <p id="template-size" class="mb-8">
+    <p id="template-size" class="mb-2">
       <span class="badge" title="Size"></span>
     </p>
+    <p id="template-tags" class="mb-6 flex flex-wrap gap-2"></p>
 
     <!-- Two columns + adaptive divider -->
     <div class="grid grid-cols-1 lg:[grid-template-columns:1fr_auto_1fr] gap-10 items-start">
@@ -66,7 +67,11 @@
             📥 Download CSV Template
           </a>
         </p>
-        <button class="btn mt-2" id="start_editor">Start Editor</button>
+
+        <div class="flex items-center gap-3 mb-2">
+          <button class="btn mt-2" id="start_editor">Start Editor</button>
+          <a id="see-more-style" href="/index.html" class="link mt-2">See more in this style →</a>
+        </div>
       </div>
 
       <!-- Divider -->
@@ -184,18 +189,50 @@
         const ogUrl = document.querySelector('meta[property="og:url"]');
         if (ogUrl) ogUrl.setAttribute('content', pageUrl);
 
+        // Optional Twitter image mirrors OG image for better shares
+        let twImage = document.querySelector('meta[name="twitter:image"]');
+        if (!twImage) {
+          twImage = document.createElement('meta');
+          twImage.setAttribute('name', 'twitter:image');
+          document.head.appendChild(twImage);
+        }
+        twImage.setAttribute('content', imageAbs);
+
+        // H1 and size badge
         const h1 = document.getElementById('template-title');
         if (h1) h1.textContent = currentTemplate.title;
         const sizeWrap = document.getElementById('template-size');
         if (sizeWrap && sizeWrap.firstElementChild) {
           sizeWrap.firstElementChild.textContent = currentTemplate.sizeText || (currentTemplate.size ? currentTemplate.size.toUpperCase() : '');
         }
+
+        // Style/tag badges
+        const tagsWrap = document.getElementById('template-tags');
+        if (tagsWrap) {
+          const tags = Array.from(new Set([currentTemplate.tag, ...(currentTemplate.tags || [])].filter(Boolean)));
+          tags.forEach(t => {
+            const span = document.createElement('span');
+            span.className = 'badge';
+            span.textContent = t;
+            tagsWrap.appendChild(span);
+          });
+
+          // “See more in this style” leads to catalog prefiltered by the first tag
+          const primaryStyle = tags[0];
+          const styleLink = document.getElementById('see-more-style');
+          if (primaryStyle && styleLink) {
+            styleLink.href = `/index.html?style=${encodeURIComponent(primaryStyle)}`;
+          }
+        }
+
+        // Image
         if (currentTemplate.image) {
           const imgWrap = document.getElementById('template-image-wrap');
           const img = document.getElementById('template-image');
           if (img && imgWrap) {
+            const sizeTxt = currentTemplate.sizeText || currentTemplate.size || '';
             img.src = currentTemplate.image;
-            img.alt = `${currentTemplate.title} — ${currentTemplate.sizeText || currentTemplate.size || ''}`.trim();
+            img.alt = `${currentTemplate.title}${sizeTxt ? ' — ' + sizeTxt : ''}`;
             imgWrap.classList.remove('hidden');
           }
         }
@@ -204,11 +241,16 @@
         const jsonLd = {
           "@context": "https://schema.org/",
           "@type": "Product",
-          "name": currentTemplate.title,
+          "name": currentTemplate.seoTitle || currentTemplate.title,
           "image": [ imageAbs ],
           "description": descText,
           "brand": { "@type": "Brand", "name": "Envelo.love" },
           "sku": currentTemplate.id,
+          "category": "Stationery > Envelopes",
+          "additionalProperty": [
+            { "@type": "PropertyValue", "name": "Size", "value": currentTemplate.sizeText || currentTemplate.size || "" },
+            { "@type": "PropertyValue", "name": "Style", "value": Array.from(new Set([currentTemplate.tag, ...(currentTemplate.tags || [])].filter(Boolean))).join(', ') }
+          ],
           "offers": {
             "@type": "Offer",
             "url": pageUrl,
