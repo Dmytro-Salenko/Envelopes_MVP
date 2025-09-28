@@ -217,4 +217,42 @@ const envelopeTemplates = [
     tags: ["Floral"],
     slug: "floral-wedding-envelope-template-6x4-lilac",
     seoTitle: "Floral Wedding Envelope Template (A6 6×4) — Editable & Printable | Envelo.love",
-    seoDescription: "Design elegant floral wedding envelopes in A6 (6×4). Edit online, merge addresses from CSV, and
+    seoDescription: "Design elegant floral wedding envelopes in A6 (6×4). Edit online, merge addresses from CSV, and export a professional print-ready PDF in minutes.",
+    priceUSD: 8.99
+  },
+  {
+    id: "8e2c2cd90717d0dab6fb92c309f3bfb4",
+    title: "Floral Wedding Envelope — Eucalyptus Style (6×4 A6, Editable PDF)",
+    image: "/images/floral-eucalyptus-6x4.jpg",
+    description: "Fresh eucalyptus floral envelope template for A6 (6×4 in). Personalize typography, merge CSV addresses online, and download a print-ready PDF.",
+    size: "6x4",
+    sizeText: "6×4 in",
+    tag: "Floral",
+    tags: ["Floral"],
+    slug: "floral-wedding-envelope-template-6x4-eucalyptus",
+    seoTitle: "Floral Wedding Envelope (A6 6×4) — Eucalyptus, Editable & Printable | Envelo.love",
+    seoDescription: "Create elegant eucalyptus-floral wedding envelopes in A6 (6×4). Edit online, mail-merge CSV guest addresses, and export a high-resolution print-ready PDF.",
+    priceUSD: 8.99
+  },
+
+  // NEW All-Occasions A6 (6×4)
+  {
+    id: "f64f8b5166f8e5391bd70ca8f2f3b754",
+    title: "All-Occasions Envelope Template — For Any Occasion (6×4)",
+    image: "/images/for-any-occasion-6x4.jpg",
+    description: "Compact 6×4 envelope template that fits any occasion — from party invites and thank-you notes to seasonal cards and business mail. Edit online, bulk-import addresses via CSV, and export a sharp, print-ready PDF that works with standard A6 envelopes.",
+    size: "6x4",
+    sizeText: "6×4 in",
+    tag: "All-Occasions",
+    tags: ["All-Occasions", "Versatile"],
+    slug: "all-occasions-envelope-template-for-any-occasion-6x4",
+    seoTitle: "All-Occasions Envelope (6×4) — For Any Occasion | Envelo.love",
+    seoDescription: "A versatile 6×4 envelope template for invitations, thank-you notes, holidays, and more. Personalize, mail-merge CSV addresses, and download a print-ready PDF.",
+    priceUSD: 7.99
+  }
+];
+
+// Default price for JSON-LD if not set
+envelopeTemplates.forEach(t => {
+  t.priceUSD = t.priceUSD ?? 0;
+});
